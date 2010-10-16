@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg>
+
+<svg width="190" height="240" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(20 220) scale(10 -10)">
+    <polygon points="0 0, 0 20, 15 20, 15 16, 10 16, 10 14, 15 14, 15 0, 0 0"/>
+  </g>
+  <g transform="translate(15 120) rotate(270)">
+    <text x="0" y="0">20</text>
+  </g>
+  <g transform="translate(85 15)">
+    <text x="0" y="0">15</text>
+  </g>
+  <g transform="translate(85 235)">
+    <text x="0" y="0">15</text>
+  </g>
+  <g transform="translate(135 95)">
+    <text x="0" y="0" fill="rgb(255,255,255)">5</text>
+  </g>
+  <g transform="translate(135 55)">
+    <text x="0" y="0" fill="rgb(255,255,255)">5</text>
+  </g>
+  <g transform="translate(175 35) rotate(90)">
+    <text x="0" y="0">4</text>
+  </g>
+  <g transform="translate(175 135) rotate(90)">
+    <text x="0" y="0">14</text>
+  </g>
+  <g transform="translate(125 65) rotate(90)">
+    <text x="0" y="0">2</text>
+  </g>
+</svg>

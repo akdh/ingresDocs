@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg>
+
+<svg width="120" height="120" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(10 110) scale(10 -10)">
+    <path d="M0 0 L 10 0 L 10 10 L 0 10" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2"/>
+    <circle cx="0" cy="10" r="0.4"/>
+  </g>
+  <g transform="translate(10 110)">
+    <text x="5" y="-85">(0, 10)</text>
+  </g>
+</svg>

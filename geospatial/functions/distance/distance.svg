@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg>
+
+<svg width="70" height="70" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(10 60) scale(1 -1)">
+    <circle cx="10" cy="0" r="2"/>
+    <circle cx="10" cy="50" r="2"/>
+  </g>
+  <text x="25" y="65">(1, 0)</text>
+  <text x="25" y="15">(1, 5)</text>
+</svg>

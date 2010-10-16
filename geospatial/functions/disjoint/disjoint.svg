@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg>
+
+<svg width="310" height="150" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(10 150) scale(10 -10)">
+    <polygon points="0 10, 10 10, 8 0, 2 0, 0 10" fill="rgb(120,180,120)"/>
+    <polygon points="10 13, 20 13, 18 3, 12 3, 10 13" fill="rgb(80,80,140)"/>
+  </g>
+</svg>
