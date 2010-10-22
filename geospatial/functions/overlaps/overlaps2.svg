@@ -1,0 +1,10 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg>
+
+<svg width="110" height="110" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(5 105) scale(10 -10)">
+    <path d="M0 10 L6 4" stroke="#1E7687"/>
+    <path d="M4 6 L10 0" stroke="#70B6C3"/>
+    <path d="M4 6 L6 4" stroke="#0A4B57"/>
+  </g>
+</svg>
