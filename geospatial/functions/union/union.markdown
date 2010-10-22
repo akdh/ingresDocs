@@ -2,7 +2,7 @@
 
 Geometry UNION(g1 Geometry, g2 Geometry)
 
-Isn't union a SQL keyword?
+**???** Isn't union a SQL keyword?
 
 Returns an object that covers the area covered by either g1 or g2.
 

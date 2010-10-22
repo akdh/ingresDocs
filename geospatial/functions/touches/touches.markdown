@@ -4,6 +4,8 @@ integer TOUCHES(g1 Geometry, g2 Geometry)
 
 Returns `1` if g1 and g2 share one or more points but do not overlap, returns `0` if they overlap or do not share any points.
 
+## Examples ##
+
     * SELECT TOUCHES(POLYFROMTEXT('POLYGON((0 13, 10 13, 10 3, 2 3, 0 13))'), POLYFROMTEXT('POLYGON((10 13, 20 13, 18 3, 10 3, 10 13))'));\g             
     Executing . . .
 

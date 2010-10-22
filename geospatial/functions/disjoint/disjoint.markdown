@@ -4,6 +4,8 @@ integer DISJOINT(g1 Geometry, g2 Geometry)
 
 Returns `1` if g1 and g2 have no points which they both contain, returns `0` otherwise.
 
+## Example ##
+
     * SELECT DISJOINT(POLYFROMTEXT('POLYGON((0 10, 10 10, 8 0, 2 0, 0 10))'), POLYFROMTEXT('POLYGON((10 13, 20 13, 18 3, 12 3, 10 13))'));\g
     Executing . . .
 

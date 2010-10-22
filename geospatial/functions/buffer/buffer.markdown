@@ -2,7 +2,9 @@
 
 Geometry BUFFER(g Geometry, n float)
 
-Returns an object that contains every point greater than or equal to n away from g and all of g.
+Returns an object that contains g as well as every point that has a distance equal to or less than n from g.
+
+## Example ##
 
     * SELECT ASTEXT(BUFFER(POLYFROMTEXT('POLYGON((0 0, 0 20, 15 20, 15 0, 0 0))'), 1));\g                            
     Executing . . .
