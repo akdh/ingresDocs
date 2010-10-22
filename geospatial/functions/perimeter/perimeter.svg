@@ -3,7 +3,7 @@
 
 <svg width="190" height="240" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <g transform="translate(20 220) scale(10 -10)">
-    <polygon points="0 0, 0 20, 15 20, 15 16, 10 16, 10 14, 15 14, 15 0, 0 0"/>
+    <polygon points="0 0, 0 20, 15 20, 15 16, 10 16, 10 14, 15 14, 15 0, 0 0" fill="#DB822D"/>
   </g>
   <g transform="translate(15 120) rotate(270)">
     <text x="0" y="0">20</text>
