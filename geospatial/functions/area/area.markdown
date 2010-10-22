@@ -6,8 +6,6 @@ Returns the area of g.
 
 ## Example ##
 
-![Sample polygon](area.svg)
-
     * SELECT AREA(POLYFROMTEXT('POLYGON((0 0,0 10,5 5,10 10, 8 6,10 0,3 3,0 0))'));\g
     Executing . . .
 
@@ -18,3 +16,5 @@ Returns the area of g.
     │     50.000│
     └───────────┘
     (1 row)
+
+![Sample polygon](area.svg)
