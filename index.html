@@ -1,5 +1,4 @@
-<html><head><title>Ingres Geospatial Documentation</title><style>pre{background: #DDD;white-space: pre-wrap;padding: 0.5em 0;}</style><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head></body>
-<h1>Area</h1>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Ingres Geospatial Documentation</title></head><body> <h1>Area</h1>
 
 <p>float AREA(g Geometry)</p>
 
@@ -20,6 +19,59 @@ Executing . . .
 </code></pre>
 
 <p><img src="area.png" alt="Sample polygon" title="" /></p>
+
+<h1>AsSVG (not implemented)</h1>
+
+<p>string ASSVG(g Geometry)</p>
+
+<p>Returns a string with one or two SVG attribute name and value pairs in the form of: <code>attribute="value"</code>.</p>
+
+<p>Which attribute is returned depends on the type of g.</p>
+
+<ul>
+<li>POINT - cx and cy attributes that can be used in a circle element</li>
+<li>LINE - d attribute that can be used in a path element</li>
+<li>POLY - points attribute that can be used in a polygon element</li>
+<li>MULTI/COLLECTIONS - have the same attributes as their singular counterparts but are separated with semicolons (;)</li>
+</ul>
+
+<p>ASSVG gives full precision, to control precision use SVGROUND(g Geometry, n integer) - Not documented.</p>
+
+<h2>Examples</h2>
+
+<pre><code>* SELECT ASSVG(POLYFROMTEXT('POLYGON((0 0, 0 10, 10 10, 10 0, 0 0))'));\g
+Executing . . .
+
+
+┌───────────┐
+│col1       │
+├───────────┤
+│points="0 0,0 10,10 10,10 0,0 0"│
+└───────────┘
+(1 row)
+
+* SELECT ASSVG(MPOINTFROMTEXT('MULTIPOINT((0 0),(1 2),(2 4),(4 8))'));\g
+Executing . . .
+
+
+┌───────────┐
+│col1       │
+├───────────┤
+│cx="0" cy="0";cx="1" cy="2";cx="2" cy="4";cx="4" cy="8"│
+└───────────┘
+(1 row)
+
+* SELECT ASSVG(LINEFROMTEXT('LINESTRING(0 0, 10 0, 10 10, 0 10)'));\g
+Executing . . .
+
+
+┌───────────┐
+│col1       │
+├───────────┤
+│d="M0 0 L 10 0 L 10 10 L 0 10"│
+└───────────┘
+(1 row)
+</code></pre>
 
 <h1>Buffer</h1>
 
@@ -1240,5 +1292,4 @@ Executing . . .
 │     10.000│
 └───────────┘
 (1 row)
-</code></pre>
-</body></html>
+</code></pre> </body></html>
