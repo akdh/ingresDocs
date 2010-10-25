@@ -1,4 +1,4 @@
-<html><head><style>pre{background: #DDD;white-space: pre-wrap;padding: 0.5em 0;}</style><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head></body>
+<html><head><title>Ingres Geospatial Documentation</title><style>pre{background: #DDD;white-space: pre-wrap;padding: 0.5em 0;}</style><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head></body>
 <h1>Area</h1>
 
 <p>float AREA(g Geometry)</p>
@@ -43,6 +43,42 @@ Executing . . .
 
 <p><img src="buffer.png" alt="Buffer" title="" /></p>
 
+<h1>Centroid</h1>
+
+<p>Geometry CENTROID(g Geometry)</p>
+
+<p>Returns the center of g.</p>
+
+<h2>Examples</h2>
+
+<pre><code>* SELECT ASTEXT(CENTROID(POLYFROMTEXT('POLYGON((0 0, 10 0, 10 2, 2 2, 2 8, 10 8, 10 10, 0 10, 0 0))')));\g
+Executing . . .
+
+
+┌────────────────────────────────┐
+│col1                            │
+├────────────────────────────────┤
+│POINT (4.0769230769230766 5)    │
+└────────────────────────────────┘
+(1 row)
+</code></pre>
+
+<p><img src="centroid.png" alt="CentroidPolygon" title="" /></p>
+
+<pre><code>* SELECT ASTEXT(CENTROID(MPOINTFROMTEXT('MULTIPOINT((0 0), (1 1), (0.5 1), (2 0.5), (10 10), (9 9), (8.5 9))')));\g
+Executing . . .
+
+
+┌────────────────────────────────┐
+│col1                            │
+├────────────────────────────────┤
+│POINT (4.4285714285714288 4.3571428571428568)│
+└────────────────────────────────┘
+(1 row)
+</code></pre>
+
+<p><img src="centroid2.png" alt="CentroidMultipoint" title="" /></p>
+
 <h1>Contains</h1>
 
 <p>integer CONTAINS(g1 Geometry, g2 Geometry)</p>
@@ -78,6 +114,28 @@ Executing . . .
 </code></pre>
 
 <p><img src="contains2.png" alt="Contains False" title="" /></p>
+
+<h1>ConvexHull</h1>
+
+<p>Geometry CONVEXHULL(g Geometry)</p>
+
+<p>Returns an object that contains all of g.</p>
+
+<h2>Example</h2>
+
+<pre><code>* SELECT ASTEXT(CONVEXHULL(MPOINTFROMTEXT('MULTIPOINT((0 0), (10 1), (9 10), (0 0), (8 8))')));\g
+Executing . . .
+
+
+┌────────────────────────────────┐
+│col1                            │
+├────────────────────────────────┤
+│POLYGON ((0 0, 9 10, 10 1, 0 0))│
+└────────────────────────────────┘
+(1 row)
+</code></pre>
+
+<p><img src="convexhull.png" alt="ConvexHull" title="" /></p>
 
 <h1>Crosses</h1>
 
@@ -135,6 +193,62 @@ Executing . . .
 
 <p><img src="crosses3.png" alt="CrossesFalse" title="" /></p>
 
+<h1>Difference</h1>
+
+<p>Geometry DIFFERENCE(g1 Geometry, g2 Geometry)</p>
+
+<p>Returns the part of g1 that does not share any points with g2. g1 and g2 should have the same dimension.</p>
+
+<h2>Examples</h2>
+
+<p>g2 shares every one of its points with g1, g1 also has some unique points.</p>
+
+<pre><code>* SELECT ASTEXT(DIFFERENCE(POLYFROMTEXT('POLYGON((0 0, 10 0, 10 10, 0 10, 0 0))'), POLYFROMTEXT('POLYGON((2 2, 2 4, 4 4, 4 2, 2 2))')));\g
+Executing . . .
+
+
+┌────────────────────────────────┐
+│col1                            │
+├────────────────────────────────┤
+│POLYGON ((0 0, 0 10, 10 10, 10 0, 0 0), (2 2, 4 2, 4 4, 2 4, 2 2))│
+└────────────────────────────────┘
+(1 row)
+</code></pre>
+
+<p><img src="difference.png" alt="DifferenceNormal" title="" /></p>
+
+<p>g1 does not share any points with g2.</p>
+
+<pre><code>* SELECT ASTEXT(DIFFERENCE(POLYFROMTEXT('POLYGON((0 0, 4 0, 4 10, 0 10, 0 0))'), POLYFROMTEXT('POLYGON((6 0, 10 0, 10 10, 6 10, 6 0))')));\g
+Executing . . .
+
+
+┌────────────────────────────────┐
+│col1                            │
+├────────────────────────────────┤
+│POLYGON ((0 0, 0 10, 4 10, 4 0, 0 0))│
+└────────────────────────────────┘
+(1 row)
+</code></pre>
+
+<p><img src="difference2.png" alt="DifferenceSame" title="" /></p>
+
+<p>g1 shares every one of its points with g2.</p>
+
+<pre><code>* SELECT ASTEXT(DIFFERENCE(POLYFROMTEXT('POLYGON((2 2, 2 8, 8 8, 8 2, 2 2))'), POLYFROMTEXT('POLYGON((0 0, 10 0, 10 10, 0 10, 0 0))')));\g  
+Executing . . .
+
+
+┌────────────────────────────────┐
+│col1                            │
+├────────────────────────────────┤
+│GEOMETRYCOLLECTION EMPTY        │
+└────────────────────────────────┘
+(1 row)
+</code></pre>
+
+<p><img src="difference3.png" alt="DifferenceEmpty" title="" /></p>
+
 <h1>Dimension</h1>
 
 <p>integer DIMENSION(g Geometry)</p>
@@ -142,7 +256,7 @@ Executing . . .
 <p>Returns the dimension of g. Dimension depends on the geometry type.</p>
 
 <ul>
-<li>POINT and MULTIPOINT have a dimension of 1</li>
+<li>POINT and MULTIPOINT have a dimension of 0</li>
 <li>LINESTRING and MULTILINESTRING have a dimension of 2</li>
 <li>POLYGON and MULTIPOLYGON have a dimension of 2</li>
 </ul>
@@ -331,6 +445,48 @@ Executing . . .
 (1 row)
 </code></pre>
 
+<h1>ExteriorRing</h1>
+
+<p>Linestring EXTERIORRING(p Polygon)</p>
+
+<p>Returns the linestring for the exterior ring of p. The exterior ring is the outside of the polygon.</p>
+
+<h2>Examples</h2>
+
+<pre><code>* SELECT ASTEXT(EXTERIORRING(POLYFROMTEXT('POLYGON((0 0, 0 10, 10 10, 10 0, 0 0), (2 2, 2 8, 8 8, 8 2, 2 2))')));\g
+Executing . . .
+
+
+┌────────────────────────────────┐
+│col1                            │
+├────────────────────────────────┤
+│LINESTRING (0 0, 0 10, 10 10, 10 0, 0 0)│
+└────────────────────────────────┘
+(1 row)
+</code></pre>
+
+<p><img src="exteriorring.png" alt="ExteriorRing" title="" /></p>
+
+<h1>GeometryN</h1>
+
+<p>Geometry GEOMETRYN(g Geometrycollection, n interger)</p>
+
+<p>Returns the n-th object from g.</p>
+
+<h2>Examples</h2>
+
+<pre><code>* SELECT ASTEXT(GEOMETRYN(MLINEFROMTEXT('MULTILINESTRING((1 1, 9 1), (2 2, 8 2))'), 2));\g
+Executing . . .
+
+
+┌────────────────────────────────┐
+│col1                            │
+├────────────────────────────────┤
+│LINESTRING (2 2, 8 2)           │
+└────────────────────────────────┘
+(1 row)
+</code></pre>
+
 <h1>GeometryType</h1>
 
 <p>string GEOMETRYTYPE(g Geometry)</p>
@@ -350,6 +506,67 @@ Executing . . .
 └──────────────────────────────┘
 (1 row)
 </code></pre>
+
+<h1>Inside</h1>
+
+<p>integer INSIDE(g1 Geometry, g2 Geometry)</p>
+
+<p>Returns <code>1</code> if every point in g1 is shared with g2, returns <code>0</code> otherwise.</p>
+
+<p><strong>???</strong> In what case is INSIDE different from WITHIN. Is INSIDE part of the spec?</p>
+
+<h2>Examples</h2>
+
+<pre><code>* SELECT INSIDE(POLYFROMTEXT('POLYGON((0 0, 0 10, 10 10, 10 0, 0 0))'), POLYFROMTEXT('POLYGON((0 0, 0 10, 10 10, 0 0))'));\g      
+Executing . . .
+
+
+┌─────────────┐
+│col1         │
+├─────────────┤
+│            0│
+└─────────────┘
+(1 row)
+</code></pre>
+
+<p><img src="inside.png" alt="InsideFalse" title="" /></p>
+
+<pre><code>* SELECT INSIDE(POINTFROMTEXT('POINT(2 8)'), POLYFROMTEXT('POLYGON((0 0, 0 10, 10 10, 0 0))'));\g  
+Executing . . .
+
+
+┌─────────────┐
+│col1         │
+├─────────────┤
+│            1│
+└─────────────┘
+(1 row)
+</code></pre>
+
+<p><img src="inside2.png" alt="InsideTrue" title="" /></p>
+
+<h1>InteriorRingN</h1>
+
+<p>Linestring INTERIORRINGN(p Polygon, n integer)</p>
+
+<p>Returns the linestring for the n-th interior ring of p. Interior rings are holes in the polygon.</p>
+
+<h2>Examples</h2>
+
+<pre><code>* SELECT ASTEXT(INTERIORRINGN(POLYFROMTEXT('POLYGON((2 0, 2 10, 0 10, 10 15, 20 10, 18 10, 18 0, 2 0), (13 0, 13 5, 17 5, 17 0, 13 0), (5 7, 5 10, 8 10, 8 7, 5 7))'),1));\g
+Executing . . .
+
+
+┌────────────────────────────────┐
+│col1                            │
+├────────────────────────────────┤
+│LINESTRING (13 0, 13 5, 17 5, 17 0, 13 0)│
+└────────────────────────────────┘
+(1 row)
+continue
+</code></pre>
+
+<p><img src="interiorringn.png" alt="InteriorRingN" title="" /></p>
 
 <h1>Intersection</h1>
 
@@ -425,6 +642,184 @@ Executing . . .
 
 <p><img src="intersects3.png" alt="IntersectsIntersection" title="" /></p>
 
+<h1>IsClosed</h1>
+
+<p>integer ISCLOSED(g Geometry)</p>
+
+<p>Use for Linestrings. Returns <code>1</code> if the first and last points in g are the same, returns <code>0</code> otherwise.</p>
+
+<h2>Examples</h2>
+
+<pre><code>* SELECT ISCLOSED(LINEFROMTEXT('LINESTRING(0 0, 0 2, 2 2, 2 4, 4 4, 4 6, 6 6, 6 8, 8 8, 8 10, 10 10)'));\g
+Executing . . .
+
+
+┌─────────────┐
+│col1         │
+├─────────────┤
+│            0│
+└─────────────┘
+(1 row)
+</code></pre>
+
+<p><img src="isclosed.png" alt="IsClosedFalse" title="" /></p>
+
+<pre><code>* SELECT ISCLOSED(LINEFROMTEXT('LINESTRING(0 0, 0 10, 10 10, 0 0)'));\g
+Executing . . .
+
+
+┌─────────────┐
+│col1         │
+├─────────────┤
+│            1│
+└─────────────┘
+(1 row)
+</code></pre>
+
+<p><img src="isclosed2.png" alt="IsClosedTrue" title="" /></p>
+
+<h1>IsEmpty</h1>
+
+<p>integer ISEMPTY(g Geometry)</p>
+
+<p>Returns <code>1</code> if g contains no points, returns <code>0</code> otherwise. Will return <code>-1</code> if there is an error.</p>
+
+<h2>Examples</h2>
+
+<p>g is the intersection of two polygons which have no shared points.</p>
+
+<pre><code>* SELECT ISEMPTY(INTERSECTION(POLYFROMTEXT('POLYGON((0 0, 0 2, 2 2, 2 0, 0 0))'), POLYFROMTEXT('POLYGON((8 8, 10 8, 10 10, 8 10, 8 8))')));\g
+Executing . . .
+
+
+┌─────────────┐
+│col1         │
+├─────────────┤
+│            1│
+└─────────────┘
+(1 row)
+
+* SELECT ISEMPTY(GEOMCOLLFROMTEXT('GEOMETRYCOLLECTION EMPTY'));\g
+Executing . . .
+
+
+┌─────────────┐
+│col1         │
+├─────────────┤
+│            1│
+└─────────────┘
+(1 row)
+
+* SELECT ISEMPTY(LINEFROMTEXT('LINESTRING(0 0, 10 10)'));\g      
+Executing . . .
+
+
+┌─────────────┐
+│col1         │
+├─────────────┤
+│            0│
+└─────────────┘
+(1 row)
+</code></pre>
+
+<h1>IsRing</h1>
+
+<p>integer ISRING(g Geometry)</p>
+
+<p>Use for Linestrings. Returns <code>1</code> if g's start point and end point are the same (ISCLOSED) and g does not cross the same point twice (ISSIMPLE). Returns <code>0</code> otherwise.</p>
+
+<h2>Examples</h2>
+
+<p>g does not cross itself and has the same start and end points.</p>
+
+<pre><code>* SELECT ISRING(LINEFROMTEXT('LINESTRING(0 5, 5 10, 10 5, 5 0, 0 5)'));\g     
+Executing . . .
+
+
+┌─────────────┐
+│col1         │
+├─────────────┤
+│            1│
+└─────────────┘
+(1 row)
+</code></pre>
+
+<p><img src="isring.png" alt="IsRingTrue" title="" /></p>
+
+<p>g crosses itself.</p>
+
+<pre><code>* SELECT ISRING(LINEFROMTEXT('LINESTRING(0 0, 10 0, 10 10, 5 10, 5 6, 7 6, 7 8, 0 8, 0 0)'));\g
+Executing . . .
+
+
+┌─────────────┐
+│col1         │
+├─────────────┤
+│            0│
+└─────────────┘
+(1 row)
+</code></pre>
+
+<p><img src="isring2.png" alt="IsRingFalse" title="" /></p>
+
+<h1>IsSimple</h1>
+
+<p>integer ISSIMPLE(g Geometry)</p>
+
+<p>Returns <code>1</code> if g does not cross the same point twice, returns <code>0</code> if it does. g is simple even if its start and end point are the same. Will return <code>-1</code> if there is an error.</p>
+
+<p><strong>???</strong> Can a 2 dimensional object (eg. polygon) not be simple?</p>
+
+<h2>Examples</h2>
+
+<p>One line of g touches another point in g.</p>
+
+<pre><code>* SELECT ISSIMPLE(LINEFROMTEXT('LINESTRING(5 0, 10 10, 10 0, 0 0, 10 10)'));\g
+Executing . . .
+
+
+┌─────────────┐
+│col1         │
+├─────────────┤
+│            0│
+└─────────────┘
+(1 row)
+</code></pre>
+
+<p><img src="issimple.png" alt="IsSimpleFalseTangent" title="" /></p>
+
+<p>One line of g crosses over another line.</p>
+
+<pre><code>* SELECT ISSIMPLE(LINEFROMTEXT('LINESTRING(0 0, 10 10, 10 0, 0 10, 0 0)'));\g
+Executing . . .
+
+
+┌─────────────┐
+│col1         │
+├─────────────┤
+│            0│
+└─────────────┘
+(1 row)
+</code></pre>
+
+<p><img src="issimple2.png" alt="IsSimpleFalseCross" title="" /></p>
+
+<p>g does not cross the same point twice.</p>
+
+<pre><code>* SELECT ISSIMPLE(LINEFROMTEXT('LINESTRING(10 20, 0.5 13.1, 4.1 1.9, 15.9 1.9, 19.5 13.1, 10 20)'));\g
+Executing . . .
+
+
+┌─────────────┐
+│col1         │
+├─────────────┤
+│            1│
+└─────────────┘
+(1 row)
+</code></pre>
+
+<p><img src="issimple3.png" alt="IsSimpleTrue" title="" /></p>
+
 <h1>Length</h1>
 
 <p>float ST_LENGTH(g Geometry)</p>
@@ -448,6 +843,70 @@ Executing . . .
 </code></pre>
 
 <p><img src="length.png" alt="Length" title="" /></p>
+
+<h1>NumGeometries</h1>
+
+<p>integer NUMGEOMETRIES(g Geometrycollection)</p>
+
+<p>Returns the number of objects in g.</p>
+
+<h2>Examples</h2>
+
+<pre><code>* SELECT NUMGEOMETRIES(MPOINTFROMTEXT('MULTIPOINT(1 1, 2 2, 3 3)'));\g       
+Executing . . .
+
+
+┌─────────────┐
+│col1         │
+├─────────────┤
+│            3│
+└─────────────┘
+(1 row)
+</code></pre>
+
+<h1>NumInteriorRing</h1>
+
+<p>integer NUMINTERIORRING(p Polygon)</p>
+
+<p>Returns the number of interior rings p. Interior rings are holes in the polygon.</p>
+
+<h2>Example</h2>
+
+<pre><code>* SELECT NUMINTERIORRING(POLYFROMTEXT('POLYGON((0 0, 0 10, 10 10, 10 0, 0 0), (2 2, 2 4, 8 4, 8 2, 2 2), (2 6, 2 8, 8 8, 8 6, 2 6))'));\g
+Executing . . .
+
+
+┌─────────────┐
+│col1         │
+├─────────────┤
+│            2│
+└─────────────┘
+(1 row)
+</code></pre>
+
+<p><img src="numinteriorring.png" alt="NumInteriorRing" title="" /></p>
+
+<h1>NumPoints</h1>
+
+<p>integer NUMPOINTS(l Linestring)</p>
+
+<p>Returns the number of points that make up l.</p>
+
+<h2>Examples</h2>
+
+<pre><code>* SELECT NUMPOINTS(LINEFROMTEXT('LINESTRING(0 0, 5 5, 0 10, 5 15)'));\g
+Executing . . .
+
+
+┌─────────────┐
+│col1         │
+├─────────────┤
+│            4│
+└─────────────┘
+(1 row)
+</code></pre>
+
+<p><img src="numpoints.png" alt="NumPoints" title="" /></p>
 
 <h1>Overlaps</h1>
 
@@ -547,6 +1006,28 @@ Executing . . .
 
 <p><img src="pointn.png" alt="PointN" title="" /></p>
 
+<h1>PointOnSurface</h1>
+
+<p>Point POINTONSURFACE(g Geometry)</p>
+
+<p>Returns a point on g.</p>
+
+<h2>Example</h2>
+
+<pre><code>* SELECT ASTEXT(POINTONSURFACE(POLYFROMTEXT('POLYGON((10 10, 10 0, 0 10, 10 10))')));\g
+Executing . . .
+
+
+┌────────────────────────────────┐
+│col1                            │
+├────────────────────────────────┤
+│POINT (7.5 5)                   │
+└────────────────────────────────┘
+(1 row)
+</code></pre>
+
+<p><img src="pointonsurface.png" alt="PointOnSurface" title="" /></p>
+
 <h1>StartPoint</h1>
 
 <p>Point STARTPOINT(l Linestring)</p>
@@ -568,6 +1049,60 @@ Executing . . .
 </code></pre>
 
 <p><img src="startpoint.png" alt="StartPoint" title="" /></p>
+
+<h1>SymDifference</h1>
+
+<p>Geometry SYMDIFFERENCE(g1 Geometry, g2 Geometry)</p>
+
+<p>Returns an object that contains every point in either g1 or g2 but not points that g1 and g2 share. g1 and g2 should have the same dimension. Same as the UNION of the DIFFERENCE for both g1, g2 and g2, g1.</p>
+
+<h2>Examples</h2>
+
+<p>g1 and g2 do not share any points.</p>
+
+<pre><code>* SELECT ASTEXT(SYMDIFFERENCE(POLYFROMTEXT('POLYGON((0 0, 10 0, 5 5, 10 10, 0 10, 0 0))'), POLYFROMTEXT('POLYGON((10 1, 6 5, 10 9, 14 5, 10 1))')));\g
+Executing . . .
+
+
+┌────────────────────────────────┐
+│col1                            │
+├────────────────────────────────┤
+│MULTIPOLYGON (((0 0, 0 10, 10 10, 5 5, 10 0, 0 0)), ((10 1, 6 5, 10 9, 14 5, 10 1)))│
+└────────────────────────────────┘
+(1 row)
+</code></pre>
+
+<p><img src="symdifference.png" alt="SymDifference" title="" /></p>
+
+<p>g1 and g2 are the same.</p>
+
+<pre><code>* SELECT ASTEXT(SYMDIFFERENCE(LINEFROMTEXT('LINESTRING(0 0, 0 10)'), LINEFROMTEXT('LINESTRING(0 0, 0 10)')));\g
+Executing . . .
+
+
+┌────────────────────────────────┐
+│col1                            │
+├────────────────────────────────┤
+│GEOMETRYCOLLECTION EMPTY        │
+└────────────────────────────────┘
+(1 row)
+</code></pre>
+
+<p>g1 and g2 share only some points.</p>
+
+<pre><code>* SELECT ASTEXT(SYMDIFFERENCE(POLYFROMTEXT('POLYGON((0 0, 10 0, 15 5, 10 10, 0 10, 0 0))'), POLYFROMTEXT('POLYGON((10 0, 20 0, 20 10, 10 10, 5 5, 10 0))')));\g
+Executing . . .
+
+
+┌────────────────────────────────┐
+│col1                            │
+├────────────────────────────────┤
+│MULTIPOLYGON (((10 0, 0 0, 0 10, 10 10, 5 5, 10 0)), ((10 0, 15 5, 10 10, 20 10, 20 0, 10 0)))│
+└────────────────────────────────┘
+(1 row)
+</code></pre>
+
+<p><img src="symdifference2.png" alt="SymDifference" title="" /></p>
 
 <h1>Touches</h1>
 
