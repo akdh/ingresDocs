@@ -4,8 +4,8 @@ integer DIMENSION(g Geometry)
 
 Returns the dimension of g. Dimension depends on the geometry type.
 
-* POINT and MULTIPOINT have a dimension of 1
-* LINESTRING and MULTILINESTRING have a dimension of 2
+* POINT and MULTIPOINT have a dimension of 0
+* LINESTRING and MULTILINESTRING have a dimension of 1
 * POLYGON and MULTIPOLYGON have a dimension of 2
 
 ## Examples ##
