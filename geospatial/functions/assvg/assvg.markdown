@@ -2,6 +2,8 @@
 
 string ASSVG(g Geometry)
 
+Alias: ST_ASSVG
+
 Returns a string with one or two SVG attribute name and value pairs in the form of: `attribute="value"`.
 
 Which attribute is returned depends on the type of g.

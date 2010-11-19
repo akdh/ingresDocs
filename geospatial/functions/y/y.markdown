@@ -2,6 +2,8 @@
 
 float Y(p POINT)
 
+Alias: ST_Y
+
 Returns the y-coordinate of p.
 
 ## Example ##

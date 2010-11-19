@@ -2,6 +2,8 @@
 
 Linestring EXTERIORRING(p Polygon)
 
+Alias: ST_EXTERIORRING
+
 Returns the linestring for the exterior ring of p. The exterior ring is the outside of the polygon.
 
 ## Examples ##

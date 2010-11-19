@@ -2,6 +2,8 @@
 
 string ASTEXT(g Geometry)
 
+Alias: ST_ASTEXT
+
 Returns g in Well Known Text (WKT).
 
 ## Example ##

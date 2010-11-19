@@ -2,6 +2,8 @@
 
 Geometry CENTROID(g Geometry)
 
+Alias: ST_CENTROID
+
 Returns the center of g.
 
 ## Examples ##

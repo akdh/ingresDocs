@@ -2,6 +2,8 @@
 
 string GEOMETRYTYPE(g Geometry)
 
+Alias: ST_GEOMETRYTYPE
+
 Returns the type of g.
 
 ## Example ##

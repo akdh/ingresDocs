@@ -2,7 +2,7 @@
 
 Geometry GEOMETRYFROMWKB(b binary [, srid integer])
 
-Alias: GEOMFROMWKB
+Alias: GEOMFROMWKB, ST_GEOMETRYFROMWKB, ST_GEOMFROMWKB
 
 Returns a geometry object that corresponds to the Well Known Binary (WKB) representation of the object given in b. The srid argument can be used to specify the object's SRID, the srid can be left unspecified (SRID will return `-1`).
 

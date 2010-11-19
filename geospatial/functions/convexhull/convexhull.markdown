@@ -2,6 +2,8 @@
 
 Geometry CONVEXHULL(g Geometry)
 
+Alias: ST_CONVEXHULL
+
 Returns an object that contains all of g.
 
 ## Example ##

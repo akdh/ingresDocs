@@ -2,6 +2,8 @@
 
 Geometry LINEFROMTEXT(s string [, srid integer])
 
+Alias: ST_LINEFROMTEXT
+
 Returns a linestring that corresponds to the Well Known Text (WKT) in s. The SRID can optionally be specified, it is `-1` by default.
 
 ## Example ##

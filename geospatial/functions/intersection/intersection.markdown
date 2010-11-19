@@ -2,6 +2,8 @@
 
 Geometry INTERSECTION(g1 Geometry, g2 Geometry)
 
+Alias: ST_INTERSECTION
+
 Returns an object that covers the area covered by both g1 and g2.
 
 ## Example ##

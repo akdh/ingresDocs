@@ -2,6 +2,8 @@
 
 integer CROSSES(g1 Geometry, g2 Geometry)
 
+Alias: ST_CROSSES
+
 Returns `1` if g1 and g2 have only some points which they share and their intersection is of a lower dimension than either g1 or g2. Returns `0` if g1 and g2 do not have any points which they share (DISJOINT) or every point in one of them is shared with the other (CONTAINS).
 
 ## Example ##

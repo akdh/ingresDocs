@@ -2,6 +2,8 @@
 
 integer ISRING(g Geometry)
 
+Alias: ST_ISRING
+
 Use for Linestrings. Returns `1` if g's start point and end point are the same (ISCLOSED) and g does not cross the same point twice (ISSIMPLE). Returns `0` otherwise.
 
 ## Examples ##

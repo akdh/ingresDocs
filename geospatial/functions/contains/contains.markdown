@@ -2,6 +2,8 @@
 
 integer CONTAINS(g1 Geometry, g2 Geometry)
 
+Alias: ST_CONTAINS
+
 Returns `1` when g2 is inside g1, returns `0` otherwise.
 
 ## Examples ##

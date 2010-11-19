@@ -2,7 +2,7 @@
 
 Geometry GEOMETRYFROMTEXT(s string [, srid integer])
 
-Alias: GEOMFROMTEXT
+Alias: GEOMFROMTEXT, ST_GEOMETRYFROMTEXT, ST_GEOMFROMTEXT
 
 Returns a geometry object that corresponds to the Well Known Text (WKT) in s. The SRID can optionally be specified, it is `-1` by default.
 

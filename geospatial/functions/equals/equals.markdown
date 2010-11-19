@@ -2,6 +2,8 @@
 
 integer EQUALS(g1 Geometry, g2 Geometry)
 
+Alias: ST_EQUALS
+
 Returns `1` if g1 is the same as g2, returns `0` otherwise.
 
 ## Examples ##

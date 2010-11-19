@@ -2,6 +2,8 @@
 
 float X(p POINT)
 
+Alias: ST_X
+
 Returns the x-coordinate of p.
 
 ## Example ##

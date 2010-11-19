@@ -2,6 +2,8 @@
 
 binary ASBINARY(g Geometry)
 
+Alias: ST_ASBINARY
+
 Returns g in Well Known Binary (WKB).
 
 **???** Why are the results of just outputting g and ASBINARY(g) different?

@@ -2,6 +2,8 @@
 
 Geometry GEOMETRYN(g Geometrycollection, n interger)
 
+Alias: ST_GEOMETRYN
+
 Returns the n-th object from g.
 
 ## Examples ##

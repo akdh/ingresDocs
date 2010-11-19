@@ -2,6 +2,8 @@
 
 integer TOUCHES(g1 Geometry, g2 Geometry)
 
+Alias: ST_TOUCHES
+
 Returns `1` if g1 and g2 share one or more points but do not overlap, returns `0` if they overlap or do not share any points.
 
 ## Examples ##

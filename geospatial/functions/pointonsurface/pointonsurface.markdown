@@ -2,6 +2,8 @@
 
 Point POINTONSURFACE(g Geometry)
 
+Alias: ST_POINTONSURFACE
+
 Returns a point on g.
 
 ## Example ##

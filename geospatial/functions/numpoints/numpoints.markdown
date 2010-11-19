@@ -2,6 +2,8 @@
 
 integer NUMPOINTS(l Linestring)
 
+Alias: ST_NUMPOINTS
+
 Returns the number of points that make up l.
 
 ## Examples ##

@@ -2,6 +2,8 @@
 
 integer ISSIMPLE(g Geometry)
 
+Alias: ST_ISSIMPLE
+
 Returns `1` if g does not cross the same point twice, returns `0` if it does. g is simple even if its start and end point are the same. Will return `-1` if there is an error.
 
 **???** Can a 2 dimensional object (eg. polygon) not be simple?

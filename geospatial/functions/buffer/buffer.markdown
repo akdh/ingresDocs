@@ -2,6 +2,8 @@
 
 Geometry BUFFER(g Geometry, n float)
 
+Alias: ST_BUFFER
+
 Returns an object that contains g as well as every point that has a distance equal to or less than n from g.
 
 ## Example ##

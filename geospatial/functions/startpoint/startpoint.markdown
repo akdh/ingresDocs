@@ -2,6 +2,8 @@
 
 Point STARTPOINT(l Linestring)
 
+Alias: ST_STARTPOINT
+
 Returns the first point in l.
 
 ## Example ##

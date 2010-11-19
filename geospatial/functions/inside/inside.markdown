@@ -2,6 +2,8 @@
 
 integer INSIDE(g1 Geometry, g2 Geometry)
 
+Alias: ST_INSIDE
+
 Returns `1` if every point in g1 is shared with g2, returns `0` otherwise.
 
 **???** In what case is INSIDE different from WITHIN. Is INSIDE part of the spec?

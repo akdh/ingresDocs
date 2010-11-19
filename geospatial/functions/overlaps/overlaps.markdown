@@ -2,6 +2,8 @@
 
 integer OVERLAPS(g1 Geometry, g2 Geometry)
 
+Alias: ST_OVERLAPS
+
 Returns `1` if g1 and g2 have some points which they share and their intersection is of their dimension. Returns `0` if one of them shares every point with the other the other (CONTAINS) or if they do not share any points (DISJOINT).
 
 ## Examples ##

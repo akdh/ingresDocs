@@ -2,6 +2,8 @@
 
 Geometry ENVELOPE(g Geometry)
 
+Alias: ST_ENVELOPE
+
 Returns the bounding-box for g.
 
 ## Example ##

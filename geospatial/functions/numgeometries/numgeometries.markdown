@@ -2,6 +2,8 @@
 
 integer NUMGEOMETRIES(g Geometrycollection)
 
+Alias: ST_NUMGEOMETRIES
+
 Returns the number of objects in g.
 
 ## Examples ##

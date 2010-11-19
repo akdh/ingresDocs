@@ -2,6 +2,8 @@
 
 Geometry SYMDIFFERENCE(g1 Geometry, g2 Geometry)
 
+Alias: ST_SYMDIFFERENCE
+
 Returns an object that contains every point in either g1 or g2 but not points that g1 and g2 share. g1 and g2 should have the same dimension. Same as the UNION of the DIFFERENCE for both g1, g2 and g2, g1.
 
 ## Examples ##

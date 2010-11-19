@@ -2,6 +2,8 @@
 
 Linestring INTERIORRINGN(p Polygon, n integer)
 
+Alias: ST_INTERIORRINGN
+
 Returns the linestring for the n-th interior ring of p. Interior rings are holes in the polygon.
 
 ## Examples ##

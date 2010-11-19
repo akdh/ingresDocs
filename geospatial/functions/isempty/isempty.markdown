@@ -2,6 +2,8 @@
 
 integer ISEMPTY(g Geometry)
 
+Alias: ST_ISEMPTY
+
 Returns `1` if g contains no points, returns `0` otherwise. Will return `-1` if there is an error.
 
 ## Examples ##

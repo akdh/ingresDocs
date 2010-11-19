@@ -2,6 +2,8 @@
 
 Geometry DIFFERENCE(g1 Geometry, g2 Geometry)
 
+Alias: ST_DIFFERENCE
+
 Returns the part of g1 that does not share any points with g2. g1 and g2 should have the same dimension.
 
 ## Examples ##

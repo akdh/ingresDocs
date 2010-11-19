@@ -2,6 +2,8 @@
 
 float DISTANCE(g1 Geometry, g2 Geometry)
 
+Alias: ST_DISTANCE
+
 Returns the shortest distance between g1 and g2.
 
 ## Example ##

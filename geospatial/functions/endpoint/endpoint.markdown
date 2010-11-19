@@ -2,6 +2,8 @@
 
 Point ENDPOINT(l Linestring)
 
+Alias: ST_ENDPOINT
+
 Returns the last point in l.
 
 ## Example ##

@@ -2,6 +2,8 @@
 
 Point POINTN(l Linestring, n integer)
 
+Alias: ST_POINTN
+
 Returns the n-th point from l. 1 is the first point.
 
 ## Example ##

@@ -2,6 +2,8 @@
 
 float AREA(g Geometry)
 
+Alias: ST_AREA
+
 Returns the area of g.
 
 ## Example ##

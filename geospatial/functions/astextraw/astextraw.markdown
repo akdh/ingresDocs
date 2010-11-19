@@ -2,6 +2,8 @@
 
 string ASTEXTRAW(g Geometry)
 
+Alias: ST_ASTEXTRAW
+
 Returns g in Well Known Text (WKT) where every number has a precision of 16, i.e. every number has 16 digits after the decimal point.
 
 ## Examples ##

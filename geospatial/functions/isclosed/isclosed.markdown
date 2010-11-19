@@ -2,6 +2,8 @@
 
 integer ISCLOSED(g Geometry)
 
+Alias: ST_ISCLOSED
+
 Use for Linestrings. Returns `1` if the first and last points in g are the same, returns `0` otherwise.
 
 ## Examples ##

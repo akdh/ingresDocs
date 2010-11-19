@@ -2,6 +2,8 @@
 
 integer DIMENSION(g Geometry)
 
+Alias: ST_DIMENSION
+
 Returns the dimension of g. Dimension depends on the geometry type.
 
 * POINT and MULTIPOINT have a dimension of 0

@@ -2,6 +2,8 @@
 
 integer WITHIN(g1 Geometry, g2 Geometry)
 
+Alias: ST_WITHIN
+
 Returns `1` if every point in g1 is in g2, returns `0` otherwise.
 
 ## Examples ##
