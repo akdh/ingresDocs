@@ -1019,11 +1019,11 @@ Executing . . .
     >Centroid</a
     ></h1
   ><p
-  >Geometry CENTROID(g Geometry)</p
+  >Point CENTROID(g Geometry)</p
   ><p
   >Alias: ST_CENTROID</p
   ><p
-  >Returns the center of g.</p
+  >Returns the center of g. Center may not be inside g.</p
   ><div id="examples-4"
   ><h2
     ><a href="#TOC"
@@ -1407,9 +1407,9 @@ Executing . . .
   ><p
   >Returns <code
     >1</code
-    > if g1 and g2 have no points which they both contain, returns <code
+    > if g1 and g2 have no shared points, returns <code
     >0</code
-    > otherwise.</p
+    > otherwise. Returns the opposite of INTERSECTS.</p
   ><div id="example-6"
   ><h2
     ><a href="#TOC"
@@ -1471,6 +1471,8 @@ Executing . . .
     ><a href="#TOC"
       >Example</a
       ></h2
+    ><p
+    >g1 and g2 are points.</p
     ><pre
     ><code
       >* SELECT DISTANCE(POINTFROMTEXT('POINT(1 0)'), POINTFROMTEXT('POINT(1 5)'));\g
@@ -1490,6 +1492,8 @@ Executing . . .
        /><p class="caption"
       >DistancePoint</p
       ></div
+    ><p
+    >g1 and g2 are triangles.</p
     ><pre
     ><code
       >* SELECT DISTANCE(POLYFROMTEXT('POLYGON((0 0, 1 2, 2 0, 0 0))'), POLYFROMTEXT('POLYGON((3 0, 3 2, 5 0, 3 0))'));\g
@@ -2031,7 +2035,7 @@ continue
   ><p
   >Alias: ST_INTERSECTION</p
   ><p
-  >Returns an object that covers the area covered by both g1 and g2.</p
+  >Returns an object that covers the area shared by both g1 and g2.</p
   ><div id="example-12"
   ><h2
     ><a href="#TOC"
@@ -2070,7 +2074,7 @@ Executing . . .
   ><p
   >Returns <code
     >1</code
-    > if g1 and g2 have any points which they both contain, returns <code
+    > if g1 and g2 have any shared points, returns <code
     >0</code
     > otherwise. Returns the opposite of DISJOINT.</p
   ><div id="examples-15"
@@ -2235,8 +2239,13 @@ Executing . . .
 │            1│
 └─────────────┘
 (1 row)
-
-* SELECT ISEMPTY(GEOMCOLLFROMTEXT('GEOMETRYCOLLECTION EMPTY'));\g
+</code
+      ></pre
+    ><p
+    >g is an empty geometry collection.</p
+    ><pre
+    ><code
+      >* SELECT ISEMPTY(GEOMCOLLFROMTEXT('GEOMETRYCOLLECTION EMPTY'));\g
 Executing . . .
 
 
@@ -2246,8 +2255,13 @@ Executing . . .
 │            1│
 └─────────────┘
 (1 row)
-
-* SELECT ISEMPTY(LINEFROMTEXT('LINESTRING(0 0, 10 10)'));\g      
+</code
+      ></pre
+    ><p
+    >g is a linestring.</p
+    ><pre
+    ><code
+      >* SELECT ISEMPTY(LINEFROMTEXT('LINESTRING(0 0, 10 10)'));\g      
 Executing . . .
 
 
@@ -2424,7 +2438,7 @@ Executing . . .
   ><p
   >float ST_LENGTH(g Geometry)</p
   ><p
-  >Returns the length of g.</p
+  >Use for linestrings. Returns the length of g.</p
   ><p
   ><strong
     >Note</strong
@@ -2691,7 +2705,7 @@ Executing . . .
   ><p
   >Alias: ST_NUMINTERIORRING</p
   ><p
-  >Returns the number of interior rings p. Interior rings are holes in the polygon.</p
+  >Returns the number of interior rings in p. Interior rings are holes in the polygon.</p
   ><div id="example-17"
   ><h2
     ><a href="#TOC"
@@ -2767,7 +2781,7 @@ Executing . . .
   ><p
   >Returns <code
     >1</code
-    > if g1 and g2 have some points which they share and their intersection is of their dimension. Returns <code
+    > if g1 and g2 have some points which they share and the object that forms this intersection is of the same dimension as g1 and g2. Returns <code
     >0</code
     > if one of them shares every point with the other the other (CONTAINS) or if they do not share any points (DISJOINT).</p
   ><div id="examples-23"
@@ -2931,7 +2945,7 @@ Executing . . .
   ><p
   >Alias: ST_POINTN</p
   ><p
-  >Returns the n-th point from l. 1 is the first point.</p
+  >Returns the n-th point from l. 1 is considered the first point (rather than 0).</p
   ><div id="example-19"
   ><h2
     ><a href="#TOC"
@@ -2968,7 +2982,7 @@ Executing . . .
   ><p
   >Alias: ST_POINTONSURFACE</p
   ><p
-  >Returns a point on g.</p
+  >Returns one of the points in g.</p
   ><div id="example-20"
   ><h2
     ><a href="#TOC"
@@ -3090,7 +3104,7 @@ Executing . . .
   ><p
   >Alias: ST_SYMDIFFERENCE</p
   ><p
-  >Returns an object that contains every point in either g1 or g2 but not points that g1 and g2 share. g1 and g2 should have the same dimension. Same as the UNION of the DIFFERENCE for both g1, g2 and g2, g1.</p
+  >Returns an object that contains every point in either one of g1 or g2 but not points are in both g1 and g2. g1 and g2 should have the same dimension. Equivalent to the UNION of the DIFFERENCEs of g1, g2 and g2, g1.</p
   ><div id="examples-24"
   ><h2
     ><a href="#TOC"
@@ -3168,7 +3182,7 @@ Executing . . .
   ><p
   >Returns <code
     >1</code
-    > if g1 and g2 share one or more points but do not overlap, returns <code
+    > if g1 and g2 share one or more points along their edges but do not overlap, returns <code
     >0</code
     > if they overlap or do not share any points.</p
   ><div id="examples-25"
@@ -3226,7 +3240,7 @@ Executing . . .
   ><p
   >Alias: ST_UNION</p
   ><p
-  >Returns an object that covers the area covered by either g1 or g2.</p
+  >Returns an object that contains every point in either g1 and/or g2.</p
   ><div id="example-23"
   ><h2
     ><a href="#TOC"
@@ -3274,7 +3288,7 @@ Executing . . .
       >Examples</a
       ></h2
     ><p
-    >g2 is a point that is in g1, g1 also has points not in g2.</p
+    >g2 is a point that is in the polygon g1, g1 also has points not in g2.</p
     ><pre
     ><code
       >* SELECT WITHIN(POLYFROMTEXT('POLYGON((2 2, 12 2, 12 12, 2 12, 2 2))'), POINTFROMTEXT('POINT(10 5)'));\g
@@ -3295,7 +3309,7 @@ Executing . . .
       >WithinFalsePoint</p
       ></div
     ><p
-    >g1 shares some points with g2, both g1 and g2 have some points not in common.</p
+    >g1 and g2 share some points, both g1 and g2 have some points not in common as well.</p
     ><pre
     ><code
       >* SELECT WITHIN(LINEFROMTEXT('LINESTRING(10 5, 20 5)'), POLYFROMTEXT('POLYGON((2 2, 12 2, 12 12, 2 12, 2 2))'));\g
