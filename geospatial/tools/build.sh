@@ -47,17 +47,17 @@ OUTPUT_DIR=$2
 
 mkdir -p $OUTPUT_DIR
 # Convert all SVG images to PNG
-for i in $( ls $DIR/functions/**/*.svg ); do
+for i in $( ls $DIR/**/**/*.svg ); do
   BASENAME=`basename -s .svg $i`
   NEWNAME="$OUTPUT_DIR/$BASENAME.png"
   `convert $i $NEWNAME`
 done
 
 # Merge all markdown files into an html file and swap SVG references for PNG references
-for i in $( ls $DIR/functions/**/*.markdown ); do
+for i in $( ls $DIR/**/**/*.markdown ); do
   TMP=`cat $i`
   BODY="$BODY$TMP\n\n"
 done
 
 echo "$CSS" > $OUTPUT_DIR/style.css
-echo -e "$BODY" | pandoc -f markdown -t html -s --toc --css=style.css --title-prefix="$TITLE" --strict | sed s/\.svg/\.png/ > $OUTPUT_DIR/index.html
+echo -e "$BODY" | pandoc -f markdown -t html --standalone --toc --section-divs --css=style.css --title-prefix="$TITLE" --strict | sed s/\.svg/\.png/ > $OUTPUT_DIR/index.html
