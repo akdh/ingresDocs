@@ -4,7 +4,7 @@ Point CENTROID(g Geometry)
 
 Alias: ST_CENTROID
 
-Returns the center of g. Center may not be inside g.
+Returns the center of g. Center could be outside g.
 
 ## Examples ##
 
