@@ -8,7 +8,7 @@ Returns `1` if every point in g1 is in g2, returns `0` otherwise.
 
 ## Examples ##
 
-g2 is a point that is in g1, g1 also has points not in g2.
+g2 is a point that is in the polygon g1, g1 also has points not in g2.
 
     * SELECT WITHIN(POLYFROMTEXT('POLYGON((2 2, 12 2, 12 12, 2 12, 2 2))'), POINTFROMTEXT('POINT(10 5)'));\g
     Executing . . .
@@ -23,7 +23,7 @@ g2 is a point that is in g1, g1 also has points not in g2.
 
 ![WithinFalsePoint](within.svg)
 
-g1 shares some points with g2, both g1 and g2 have some points not in common.
+g1 and g2 share some points, both g1 and g2 have some points not in common as well.
 
     * SELECT WITHIN(LINEFROMTEXT('LINESTRING(10 5, 20 5)'), POLYFROMTEXT('POLYGON((2 2, 12 2, 12 12, 2 12, 2 2))'));\g
     Executing . . .

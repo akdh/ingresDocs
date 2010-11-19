@@ -2,7 +2,7 @@
 
 float ST_LENGTH(g Geometry)
 
-Returns the length of g.
+Use for linestrings. Returns the length of g.
 
 **Note** You cannot call this function with simply LENGTH, you must use ST_LENGTH. The LENGTH function is defined outside of the geospatial functions. All geospatial functions can be called with `ST_` in front of them, however it is usually more convenient to omit this where possible.
 

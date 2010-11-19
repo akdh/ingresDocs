@@ -4,7 +4,7 @@ Point POINTN(l Linestring, n integer)
 
 Alias: ST_POINTN
 
-Returns the n-th point from l. 1 is the first point.
+Returns the n-th point from l. 1 is considered the first point (rather than 0).
 
 ## Example ##
 

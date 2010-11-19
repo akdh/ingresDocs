@@ -4,7 +4,7 @@ integer DISJOINT(g1 Geometry, g2 Geometry)
 
 Alias: ST_DISJOINT
 
-Returns `1` if g1 and g2 have no points which they both contain, returns `0` otherwise.
+Returns `1` if g1 and g2 have no shared points, returns `0` otherwise. Returns the opposite of INTERSECTS.
 
 ## Example ##
 

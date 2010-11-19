@@ -4,7 +4,7 @@ integer NUMINTERIORRING(p Polygon)
 
 Alias: ST_NUMINTERIORRING
 
-Returns the number of interior rings p. Interior rings are holes in the polygon.
+Returns the number of interior rings in p. Interior rings are holes in the polygon.
 
 ## Example ##
 

@@ -8,6 +8,8 @@ Returns the shortest distance between g1 and g2.
 
 ## Example ##
 
+g1 and g2 are points.
+
     * SELECT DISTANCE(POINTFROMTEXT('POINT(1 0)'), POINTFROMTEXT('POINT(1 5)'));\g
     Executing . . .
 
@@ -20,6 +22,8 @@ Returns the shortest distance between g1 and g2.
     (1 row)
 
 ![DistancePoint](distance.svg)
+
+g1 and g2 are triangles.
 
     * SELECT DISTANCE(POLYFROMTEXT('POLYGON((0 0, 1 2, 2 0, 0 0))'), POLYFROMTEXT('POLYGON((3 0, 3 2, 5 0, 3 0))'));\g
     Executing . . .

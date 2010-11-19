@@ -4,7 +4,7 @@ Geometry UNION(g1 Geometry, g2 Geometry)
 
 Alias: ST_UNION
 
-Returns an object that covers the area covered by either g1 or g2.
+Returns an object that contains every point in either g1 and/or g2.
 
 ## Example ##
 

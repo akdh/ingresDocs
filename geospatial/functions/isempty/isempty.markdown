@@ -21,6 +21,8 @@ g is the intersection of two polygons which have no shared points.
     └─────────────┘
     (1 row)
 
+g is an empty geometry collection.
+
     * SELECT ISEMPTY(GEOMCOLLFROMTEXT('GEOMETRYCOLLECTION EMPTY'));\g
     Executing . . .
 
@@ -31,6 +33,8 @@ g is the intersection of two polygons which have no shared points.
     │            1│
     └─────────────┘
     (1 row)
+
+g is a linestring.
 
     * SELECT ISEMPTY(LINEFROMTEXT('LINESTRING(0 0, 10 10)'));\g      
     Executing . . .

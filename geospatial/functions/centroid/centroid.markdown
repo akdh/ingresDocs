@@ -1,10 +1,10 @@
 # Centroid #
 
-Geometry CENTROID(g Geometry)
+Point CENTROID(g Geometry)
 
 Alias: ST_CENTROID
 
-Returns the center of g.
+Returns the center of g. Center may not be inside g.
 
 ## Examples ##
 

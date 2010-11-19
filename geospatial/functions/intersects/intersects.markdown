@@ -4,7 +4,7 @@ integer INTERSECTS(g1 Geometry, g2 Geometry)
 
 Alias: ST_INTERSECTS
 
-Returns `1` if g1 and g2 have any points which they both contain, returns `0` otherwise. Returns the opposite of DISJOINT.
+Returns `1` if g1 and g2 have any shared points, returns `0` otherwise. Returns the opposite of DISJOINT.
 
 ## Examples ##
 
