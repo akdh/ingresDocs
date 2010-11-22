@@ -502,6 +502,16 @@
       >PolyFromWKB</a
       ></li
     ><li
+    ><a href="#srid"
+      >SRID</a
+      ><ul
+      ><li
+	><a href="#examples-24"
+	  >Examples</a
+	  ></li
+	></ul
+      ></li
+    ><li
     ><a href="#startpoint"
       >StartPoint</a
       ><ul
@@ -516,7 +526,7 @@
       >SymDifference</a
       ><ul
       ><li
-	><a href="#examples-24"
+	><a href="#examples-25"
 	  >Examples</a
 	  ></li
 	></ul
@@ -526,7 +536,17 @@
       >Touches</a
       ><ul
       ><li
-	><a href="#examples-25"
+	><a href="#examples-26"
+	  >Examples</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#transform"
+      >Transform</a
+      ><ul
+      ><li
+	><a href="#examples-27"
 	  >Examples</a
 	  ></li
 	></ul
@@ -546,7 +566,7 @@
       >Within</a
       ><ul
       ><li
-	><a href="#examples-26"
+	><a href="#examples-28"
 	  >Examples</a
 	  ></li
 	></ul
@@ -580,15 +600,7 @@
     >Point</a
     ></h1
   ><p
-  >This datatype is used to represents points. The simplest point is a X, Y coordinate. However points can also have a Z and/or a M coordinate. Z is used for representing points in 3D space while M has no geometric representation. M could be used, for example, to represent the &quot;cost&quot; of the point. Points can also have a SRID.</p
-  ><p
-  ><strong
-    >???</strong
-    > How is XYM specified? The &quot;M&quot; in POINT M seems to ignored.</p
-  ><p
-  ><strong
-    >???</strong
-    > Are there Z and M functions that do something similar to the X and Y functions?</p
+  >This datatype is used to represents points. Points have a X and a Y coordinate and optionally a SRID.</p
   ><div id="examples"
   ><h2
     ><a href="#TOC"
@@ -622,56 +634,6 @@ Executing . . .
 │      6.083│
 └───────────┘
 (2 rows)
-</code
-      ></pre
-    ><p
-    >Using X, Y, Z coordinates.</p
-    ><pre
-    ><code
-      >* SELECT ASTEXT(POINTFROMTEXT('POINT(1 2 3)'));\g
-Executing . . .
-
-
-┌────────────────────────────────┐
-│col1                            │
-├────────────────────────────────┤
-│POINT Z (1 2 3)                 │
-└────────────────────────────────┘
-(1 row)
-continue
-</code
-      ></pre
-    ><p
-    >Using X, Y, Z, M coordinates.</p
-    ><pre
-    ><code
-      >* SELECT ASTEXT(POINTFROMTEXT('POINT(1 2 3 100)'));\g
-Executing . . .
-
-
-┌────────────────────────────────┐
-│col1                            │
-├────────────────────────────────┤
-│POINT Z (1 2 3)                 │
-└────────────────────────────────┘
-(1 row)
-continue
-</code
-      ></pre
-    ><p
-    >Using X, Y, M coordinates.</p
-    ><pre
-    ><code
-      >* SELECT ASTEXT(POINTFROMTEXT('POINT M (1 2 100)'));\g  
-Executing . . .
-
-
-┌────────────────────────────────┐
-│col1                            │
-├────────────────────────────────┤
-│POINT Z (1 2 100)               │
-└────────────────────────────────┘
-(1 row)
 </code
       ></pre
     ></div
@@ -724,14 +686,6 @@ Executing . . .
   >Alias: ST_ASBINARY</p
   ><p
   >Returns g in Well Known Binary (WKB).</p
-  ><p
-  ><strong
-    >???</strong
-    > Why are the results of just outputting g and ASBINARY(g) different?</p
-  ><p
-  ><strong
-    >???</strong
-    > How do I get to hex from the result of ASBINARY.</p
   ><div id="example-1"
   ><h2
     ><a href="#TOC"
@@ -913,10 +867,6 @@ Executing . . .
   ><strong
     >???</strong
     > Shouldn't the default if p is not specified be to round to a precision of 0 rather than do no rounding.</p
-  ><p
-  ><strong
-    >???</strong
-    > Shouldn't there be a separate function ROUND that can be applied to a geometry object. This would prevent having to have functions like ASBINARYROUND, ASSVGROUND, etc.</p
   ><p
   ><strong
     >???</strong
@@ -1734,10 +1684,6 @@ Executing . . .
   >Returns a geometry object that corresponds to the Well Known Text (WKT) in s. The SRID can optionally be specified, it is <code
     >-1</code
     > by default.</p
-  ><p
-  ><strong
-    >???</strong
-    > What are the advantages to using the type specific *FROMTEXT functions?</p
   ><div id="examples-10"
   ><h2
     ><a href="#TOC"
@@ -1804,6 +1750,10 @@ Executing . . .
   >Returns a geometry object that corresponds to the Well Known Binary (WKB) representation of the object given in b. The srid argument can be used to specify the object's SRID, the srid can be left unspecified (SRID will return <code
     >-1</code
     >).</p
+  ><p
+  ><strong
+    >???</strong
+    > How do I insert results from ASBINARY into GEOMFROMWKB manually? For example copy ASBINARY results and paste into GEOMFROMWKB.</p
   ><div id="examples-11"
   ><h2
     ><a href="#TOC"
@@ -1937,11 +1887,7 @@ Executing . . .
     >1</code
     > if every point in g1 is shared with g2, returns <code
     >0</code
-    > otherwise.</p
-  ><p
-  ><strong
-    >???</strong
-    > In what case is INSIDE different from WITHIN. Is INSIDE part of the spec?</p
+    > otherwise. Returns the same result as WITHIN.</p
   ><div id="examples-13"
   ><h2
     ><a href="#TOC"
@@ -3057,6 +3003,70 @@ Executing . . .
     >-1</code
     > by default.</p
   ></div
+><div id="srid"
+><h1
+  ><a href="#TOC"
+    >SRID</a
+    ></h1
+  ><p
+  >integer SRID(g Geometry)</p
+  ><p
+  >Alias: ST_SRID</p
+  ><p
+  >Returns the Spatial Reference Identifier (SRID) of g, returns <code
+    >-1</code
+    > if the SRID has not been specified.</p
+  ><p
+  >There are many different ways to take points on the Earth and represent them on a flat surface. Each spatial reference system describes a different method of accomplishing this.</p
+  ><p
+  ><a href="http://spatialreference.org/"
+    >http://spatialreference.org/</a
+    > lists many spatial reference systems.</p
+  ><div id="examples-24"
+  ><h2
+    ><a href="#TOC"
+      >Examples</a
+      ></h2
+    ><p
+    >Get all the available spatial reference systems (some results omitted).</p
+    ><pre
+    ><code
+      >* select (srid) from spatial_ref_sys;\g
+Executing . . .
+
+
+┌─────────────┐
+│srid         │
+├─────────────┤
+│         2000│
+│         2001│
+│         2002│
+│     ...     │
+│        32760│
+│        32761│
+│        32766│
+└─────────────┘
+(3748 rows)
+</code
+      ></pre
+    ><p
+    >Point with SRID specified.</p
+    ><pre
+    ><code
+      >* SELECT SRID(POINTFROMTEXT('POINT(49 3)', 4326));\g 
+Executing . . .
+
+
+┌─────────────┐
+│col1         │
+├─────────────┤
+│         4326│
+└─────────────┘
+(1 row)
+</code
+      ></pre
+    ></div
+  ></div
 ><div id="startpoint"
 ><h1
   ><a href="#TOC"
@@ -3105,7 +3115,7 @@ Executing . . .
   >Alias: ST_SYMDIFFERENCE</p
   ><p
   >Returns an object that contains every point in either one of g1 or g2 but not points are in both g1 and g2. g1 and g2 should have the same dimension. Equivalent to the UNION of the DIFFERENCEs of g1, g2 and g2, g1.</p
-  ><div id="examples-24"
+  ><div id="examples-25"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -3185,7 +3195,7 @@ Executing . . .
     > if g1 and g2 share one or more points along their edges but do not overlap, returns <code
     >0</code
     > if they overlap or do not share any points.</p
-  ><div id="examples-25"
+  ><div id="examples-26"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -3228,6 +3238,83 @@ Executing . . .
        /><p class="caption"
       >TouchesFalse</p
       ></div
+    ></div
+  ></div
+><div id="transform"
+><h1
+  ><a href="#TOC"
+    >Transform</a
+    ></h1
+  ><p
+  >Geometry TRANSFORM(g Geometry, srid integer)</p
+  ><p
+  >Alias: ST_TRANSFORM</p
+  ><p
+  >Transforms g from one spatial reference system to another. It does not change the SRID of g, it only changes the coordinates of g. Both the SRID being transformed from and to must be in the spatial_ref_sys table.</p
+  ><div id="examples-27"
+  ><h2
+    ><a href="#TOC"
+      >Examples</a
+      ></h2
+    ><p
+    >Transforms g from 2805 to 4326, SRID of g is not changed.</p
+    ><pre
+    ><code
+      >* SELECT SRID(TRANSFORM(POINTFROMTEXT('POINT(49 3)', 2805), 4326));\g
+Executing . . .
+
+
+┌─────────────┐
+│col1         │
+├─────────────┤
+│         2805│
+└─────────────┘
+(1 row)
+
+* SELECT ASTEXT(TRANSFORM(POINTFROMTEXT('POINT(49 3)', 2805), 4326));\g        
+Executing . . .
+
+
+┌────────────────────────────────┐
+│col1                            │
+├────────────────────────────────┤
+│POINT (-73.6508648486344413 34.2444245779162628)│
+└────────────────────────────────┘
+(1 row)
+</code
+      ></pre
+    ><p
+    >Transforms g from 2805 to 4326. Changes SRID of g as well by getting g in WKB and passing the binary and SRID to GEOMFROMWKB.</p
+    ><pre
+    ><code
+      >* SELECT SRID(GEOMFROMWKB(ASBINARY(TRANSFORM(POINTFROMTEXT('POINT(49 3)', 2805), 4326)), 4326));\g
+Executing . . .
+
+
+┌─────────────┐
+│col1         │
+├─────────────┤
+│         4326│
+└─────────────┘
+(1 row)
+</code
+      ></pre
+    ><p
+    >Transforms g from 2805 to 4326 and back to 2805. SRID of g is still 4326.</p
+    ><pre
+    ><code
+      >* SELECT ASTEXTROUND(TRANSFORM(GEOMFROMWKB(ASBINARY(TRANSFORM(POINTFROMTEXT('POINT(49 3)', 2805), 4326)), 4326), 2805), 0);\g
+Executing . . .
+
+
+┌────────────────────────────────┐
+│col1                            │
+├────────────────────────────────┤
+│POINT (49 3)                    │
+└────────────────────────────────┘
+(1 row)
+</code
+      ></pre
     ></div
   ></div
 ><div id="union"
@@ -3282,7 +3369,7 @@ Executing . . .
     > if every point in g1 is in g2, returns <code
     >0</code
     > otherwise.</p
-  ><div id="examples-26"
+  ><div id="examples-28"
   ><h2
     ><a href="#TOC"
       >Examples</a
