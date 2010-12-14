@@ -4,7 +4,7 @@ Polygons are sets of points that form an area, optionally with an SSID.
 
 ## Examples ##
 
-Use polygons to represent the property owned.
+Using polygons to represent the property owned.
 
     * CREATE TABLE properties (id INTEGER PRIMARY KEY, area POLYGON NOT NULL, owner_id INTEGER NOT NULL);\g
     Executing . . .
@@ -29,7 +29,7 @@ Use polygons to represent the property owned.
 
     (1 row)
 
-How much fencing must each owner buy to cover their property.
+How much fencing must each owner buy to cover their property (where neighbouring properties are double-fenced).
 
     * SELECT SUM(PERIMETER(area)), owner_id FROM properties GROUP BY owner_id;\g    
     Executing . . .
