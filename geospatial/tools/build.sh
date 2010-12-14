@@ -40,24 +40,37 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 .figure p {
   display: none;
 }
+
+table, table th, table td {
+  border: 1px solid #000;
+  border-collapse: collapse;
+}
 "
 
-DIR=$1
+SOURCE_DIR=$1
 OUTPUT_DIR=$2
 
 mkdir -p $OUTPUT_DIR
+
 # Convert all SVG images to PNG
-for i in $( ls $DIR/**/**/*.svg ); do
+for i in $( ls $SOURCE_DIR/**/**/*.svg ); do
   BASENAME=`basename -s .svg $i`
   NEWNAME="$OUTPUT_DIR/$BASENAME.png"
-  `convert $i $NEWNAME`
+  if [ "$PATCH_SVG" = "yes" ]; then
+    # Swaps the order of transformations to cope with a suspected bug in ImageMagick's convert
+    cat $i | sed 's/transform="\([a-z]*([0-9 +,-]*)\) \([a-z]*([0-9 +,-]*)\)"/transform="\2 \1"/' | convert svg:- $NEWNAME
+  else
+    cat $i | convert svg:- $NEWNAME
+  fi
 done
 
-# Merge all markdown files into an html file and swap SVG references for PNG references
-for i in $( ls $DIR/**/**/*.markdown ); do
+# Merge all markdown files into a single markdown file
+for i in $( ls $SOURCE_DIR/**/**/*.markdown ); do
   TMP=`cat $i`
   BODY="$BODY$TMP\n\n"
 done
 
 echo "$CSS" > $OUTPUT_DIR/style.css
+
+# Convert from markdown to html and swap svg for png references
 echo -e "$BODY" | pandoc -f markdown -t html --standalone --toc --section-divs --css=style.css --title-prefix="$TITLE" --strict | sed s/\.svg/\.png/ > $OUTPUT_DIR/index.html
