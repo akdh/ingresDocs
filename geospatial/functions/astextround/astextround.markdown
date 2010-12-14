@@ -6,10 +6,6 @@ Alias: ST_ASTEXTROUND
 
 Returns g in Well Known Text (WKT) where every number has exactly a precision of p, i.e. has p digits after the decimal point.
 
-**???** Shouldn't the default if p is not specified be to round to a precision of 0 rather than do no rounding.
-
-**???** Crashes if p is a large number, e.g. 200: SELECT ASTEXTROUND(BUFFER(LINEFROMTEXT('LINESTRING(0 0, 10 10)'), 1), 200);\g
-
 ## Examples ##
 
 No precision specified.

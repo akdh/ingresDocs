@@ -4,7 +4,7 @@ integer SRID(g Geometry)
 
 Alias: ST_SRID
 
-Returns the Spatial Reference Identifier (SRID) of g, returns `-1` if the SRID has not been specified.
+Returns the Spatial Reference Identifier (SRID) of g, returns `-1` if the SRID has not been specified. The SRID is a foreign key to the SPATIAL_REF_SYS table.
 
 There are many different ways to take points on the Earth and represent them on a flat surface. Each spatial reference system describes a different method of accomplishing this.
 
