@@ -1,10 +1,10 @@
 # Point #
 
-This datatype is used to represents points. Points have a X and a Y coordinate and optionally a SRID.
+Points have a X and a Y coordinate and optionally a SRID.
 
 ## Examples ##
 
-Using X, Y coordinates to represent houses and calculate the distance from a point to each house.
+Using X, Y coordinates to represent houses.
 
     * CREATE TABLE houses ( id INTEGER PRIMARY KEY, location POINT NOT NULL );\g
     Executing . . .
@@ -19,6 +19,8 @@ Using X, Y coordinates to represent houses and calculate the distance from a poi
 
     (1 row)
 
+Calculate the distance from a point (4, 4) to each house.
+
     * SELECT DISTANCE(location, POINTFROMTEXT('POINT(4 4)')) FROM houses;\g
     Executing . . .
 
@@ -30,3 +32,5 @@ Using X, Y coordinates to represent houses and calculate the distance from a poi
     │      6.083│
     └───────────┘
     (2 rows)
+
+![Points](point.svg)
