@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg>
+
+<svg width="150" height="100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+   <g transform="translate(0 100) scale(10, -10)">
+    <polygon points="5 0, 0 0, 0 5, 5 0" fill="#000000"/>
+    <polygon points="0 5, 0 15, 15 15, 15 0, 5 0, 10 5, 5 10, 0 5" fill="#000000"/>
+    <polygon points="5 0, 0 5, 5 10, 10 5, 5 0" fill="#D3E4E7"/>
+    <polygon points="10 0, 5 5, 10 10, 15 5, 10 0" fill="#2C1A09"/>
+    <polygon points="7.5 7.5, 10 5, 7.5 2.5, 5 5, 7.5 7.5" fill="#CBC7B7"/>
+  </g>
+</svg>
