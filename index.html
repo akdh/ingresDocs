@@ -10,11 +10,41 @@
 <div id="TOC"
 ><ul
   ><li
+    ><a href="#geometry-collection"
+      >Geometry Collection</a
+      ><ul
+      ><li
+	><a href="#examples"
+	  >Examples</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#linestring"
+      >Linestring</a
+      ><ul
+      ><li
+	><a href="#examples-1"
+	  >Examples</a
+	  ></li
+	></ul
+      ></li
+    ><li
     ><a href="#point"
       >Point</a
       ><ul
       ><li
-	><a href="#examples"
+	><a href="#examples-2"
+	  >Examples</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#polygon"
+      >Polygon</a
+      ><ul
+      ><li
+	><a href="#examples-3"
 	  >Examples</a
 	  ></li
 	></ul
@@ -44,7 +74,7 @@
       >AsSVG (not implemented)</a
       ><ul
       ><li
-	><a href="#examples-1"
+	><a href="#examples-4"
 	  >Examples</a
 	  ></li
 	></ul
@@ -64,7 +94,7 @@
       >AsTextRaw</a
       ><ul
       ><li
-	><a href="#examples-2"
+	><a href="#examples-5"
 	  >Examples</a
 	  ></li
 	></ul
@@ -74,7 +104,17 @@
       >AsTextRound</a
       ><ul
       ><li
-	><a href="#examples-3"
+	><a href="#examples-6"
+	  >Examples</a
+	  ></li
+	></ul
+      ></li
+    ><li
+    ><a href="#boundary"
+      >Boundary</a
+      ><ul
+      ><li
+	><a href="#examples-7"
 	  >Examples</a
 	  ></li
 	></ul
@@ -94,7 +134,7 @@
       >Centroid</a
       ><ul
       ><li
-	><a href="#examples-4"
+	><a href="#examples-8"
 	  >Examples</a
 	  ></li
 	></ul
@@ -104,7 +144,7 @@
       >Contains</a
       ><ul
       ><li
-	><a href="#examples-5"
+	><a href="#examples-9"
 	  >Examples</a
 	  ></li
 	></ul
@@ -134,7 +174,7 @@
       >Difference</a
       ><ul
       ><li
-	><a href="#examples-6"
+	><a href="#examples-10"
 	  >Examples</a
 	  ></li
 	></ul
@@ -144,7 +184,7 @@
       >Dimension</a
       ><ul
       ><li
-	><a href="#examples-7"
+	><a href="#examples-11"
 	  >Examples</a
 	  ></li
 	></ul
@@ -194,7 +234,7 @@
       >Equals</a
       ><ul
       ><li
-	><a href="#examples-8"
+	><a href="#examples-12"
 	  >Examples</a
 	  ></li
 	></ul
@@ -204,7 +244,7 @@
       >ExteriorRing</a
       ><ul
       ><li
-	><a href="#examples-9"
+	><a href="#examples-13"
 	  >Examples</a
 	  ></li
 	></ul
@@ -228,7 +268,7 @@
       >GeometryFromText</a
       ><ul
       ><li
-	><a href="#examples-10"
+	><a href="#examples-14"
 	  >Examples</a
 	  ></li
 	></ul
@@ -238,7 +278,7 @@
       >GeometryFromWKB</a
       ><ul
       ><li
-	><a href="#examples-11"
+	><a href="#examples-15"
 	  >Examples</a
 	  ></li
 	></ul
@@ -248,7 +288,7 @@
       >GeometryN</a
       ><ul
       ><li
-	><a href="#examples-12"
+	><a href="#examples-16"
 	  >Examples</a
 	  ></li
 	></ul
@@ -268,7 +308,7 @@
       >Inside</a
       ><ul
       ><li
-	><a href="#examples-13"
+	><a href="#examples-17"
 	  >Examples</a
 	  ></li
 	></ul
@@ -278,7 +318,7 @@
       >InteriorRingN</a
       ><ul
       ><li
-	><a href="#examples-14"
+	><a href="#examples-18"
 	  >Examples</a
 	  ></li
 	></ul
@@ -298,7 +338,7 @@
       >Intersects</a
       ><ul
       ><li
-	><a href="#examples-15"
+	><a href="#examples-19"
 	  >Examples</a
 	  ></li
 	></ul
@@ -308,7 +348,7 @@
       >IsClosed</a
       ><ul
       ><li
-	><a href="#examples-16"
+	><a href="#examples-20"
 	  >Examples</a
 	  ></li
 	></ul
@@ -318,7 +358,7 @@
       >IsEmpty</a
       ><ul
       ><li
-	><a href="#examples-17"
+	><a href="#examples-21"
 	  >Examples</a
 	  ></li
 	></ul
@@ -328,7 +368,7 @@
       >IsRing</a
       ><ul
       ><li
-	><a href="#examples-18"
+	><a href="#examples-22"
 	  >Examples</a
 	  ></li
 	></ul
@@ -338,7 +378,7 @@
       >IsSimple</a
       ><ul
       ><li
-	><a href="#examples-19"
+	><a href="#examples-23"
 	  >Examples</a
 	  ></li
 	></ul
@@ -348,7 +388,7 @@
       >Length</a
       ><ul
       ><li
-	><a href="#examples-20"
+	><a href="#examples-24"
 	  >Examples</a
 	  ></li
 	></ul
@@ -414,7 +454,7 @@
       >NumGeometries</a
       ><ul
       ><li
-	><a href="#examples-21"
+	><a href="#examples-25"
 	  >Examples</a
 	  ></li
 	></ul
@@ -434,7 +474,7 @@
       >NumPoints</a
       ><ul
       ><li
-	><a href="#examples-22"
+	><a href="#examples-26"
 	  >Examples</a
 	  ></li
 	></ul
@@ -444,7 +484,7 @@
       >Overlaps</a
       ><ul
       ><li
-	><a href="#examples-23"
+	><a href="#examples-27"
 	  >Examples</a
 	  ></li
 	></ul
@@ -502,11 +542,21 @@
       >PolyFromWKB</a
       ></li
     ><li
+    ><a href="#relate"
+      >Relate</a
+      ><ul
+      ><li
+	><a href="#examples-28"
+	  >Examples</a
+	  ></li
+	></ul
+      ></li
+    ><li
     ><a href="#srid"
       >SRID</a
       ><ul
       ><li
-	><a href="#examples-24"
+	><a href="#examples-29"
 	  >Examples</a
 	  ></li
 	></ul
@@ -526,7 +576,7 @@
       >SymDifference</a
       ><ul
       ><li
-	><a href="#examples-25"
+	><a href="#examples-30"
 	  >Examples</a
 	  ></li
 	></ul
@@ -536,7 +586,7 @@
       >Touches</a
       ><ul
       ><li
-	><a href="#examples-26"
+	><a href="#examples-31"
 	  >Examples</a
 	  ></li
 	></ul
@@ -546,7 +596,7 @@
       >Transform</a
       ><ul
       ><li
-	><a href="#examples-27"
+	><a href="#examples-32"
 	  >Examples</a
 	  ></li
 	></ul
@@ -566,7 +616,7 @@
       >Within</a
       ><ul
       ><li
-	><a href="#examples-28"
+	><a href="#examples-33"
 	  >Examples</a
 	  ></li
 	></ul
@@ -594,20 +644,124 @@
     ></ul
   ></div
 >
-<div id="point"
+<div id="geometry-collection"
 ><h1
   ><a href="#TOC"
-    >Point</a
+    >Geometry Collection</a
     ></h1
   ><p
-  >This datatype is used to represents points. Points have a X and a Y coordinate and optionally a SRID.</p
+  >Collections can group points, linestrings, and polygons together. MultiPoint, MultiLinestring, and MultiPolygon are geometry collections that are all of the same time.</p
   ><div id="examples"
   ><h2
     ><a href="#TOC"
       >Examples</a
       ></h2
     ><p
-    >Using X, Y coordinates to represent houses and calculate the distance from a point to each house.</p
+    >Geometry collections can mix singular types.</p
+    ><pre
+    ><code
+      >* CREATE TABLE collections (id INTEGER PRIMARY KEY, collection GEOMETRYCOLLECTION);\g
+Executing . . .
+
+* INSERT INTO collections (id, collection) VALUES (1, GEOMCOLLFROMTEXT('GEOMETRYCOLLECTION( POLYGON ((0 0, 10 10, 0 10, 0 0)), POLYGON ((0 0, 10 10, 10 0, 0 0)))'));\g
+Executing . . .
+
+(1 row)
+
+* INSERT INTO collections (id, collection) VALUES (2, GEOMCOLLFROMTEXT('GEOMETRYCOLLECTION( POLYGON ((0 0, 10 10, 0 10, 0 0)), POINT (50 50))'));\g
+Executing . . .
+
+(1 row)
+</code
+      ></pre
+    ><p
+    >MultiPolygons are collections made up only of polygons.</p
+    ><pre
+    ><code
+      >* CREATE TABLE polygons (id INTEGER PRIMARY KEY, polygon MULTIPOLYGON);\g                                                                                              
+Executing . . .
+
+* INSERT INTO polygons (id, polygon) VALUES (1, MPOLYFROMTEXT('MULTIPOLYGON(((0 0, 10 10, 0 10, 0 0)), ((0 0, 10 10, 10 0, 0 0)))'));\g      
+Executing . . .
+
+(1 row)
+</code
+      ></pre
+    ></div
+  ></div
+><div id="linestring"
+><h1
+  ><a href="#TOC"
+    >Linestring</a
+    ></h1
+  ><p
+  >Linestrings are sets of joined points, optionally with an SSID.</p
+  ><div id="examples-1"
+  ><h2
+    ><a href="#TOC"
+      >Examples</a
+      ></h2
+    ><p
+    >Using linestrings to represent the path of travel from one point to another.</p
+    ><pre
+    ><code
+      >* CREATE TABLE paths ( id INTEGER PRIMARY KEY, path LINESTRING NOT NULL );\g 
+Executing . . .
+
+* INSERT INTO paths (id, path) VALUES (1, LINEFROMTEXT('LINESTRING(0 0, 10 0, 10 10)'));\g  
+Executing . . .
+
+(1 row)
+
+* INSERT INTO paths (id, path) VALUES (2, LINEFROMTEXT('LINESTRING(0 0, 10 10)'));\g
+Executing . . .
+
+(1 row)
+
+* INSERT INTO paths (id, path) VALUES (3, LINEFROMTEXT('LINESTRING(0 0, 10 0)'));\g 
+Executing . . .
+
+(1 row)
+</code
+      ></pre
+    ><p
+    >Length of paths that start at point (0, 0) and end at point (10, 10).</p
+    ><pre
+    ><code
+      >* SELECT id, ST_LENGTH(path) FROM paths WHERE EQUALS(STARTPOINT(path), POINTFROMTEXT('POINT(0 0)')) = 1 AND EQUALS(ENDPOINT(path), POINTFROMTEXT('POINT(10 10)')) = 1;\g
+Executing . . .
+
+
+┌─────────────┬───────────┐
+│id           │col2       │
+├─────────────┼───────────┤
+│            1│     20.000│
+│            2│     14.142│
+└─────────────┴───────────┘
+(2 rows)
+</code
+      ></pre
+    ><div class="figure"
+    ><img src="linestring.png" alt="Paths"
+       /><p class="caption"
+      >Paths</p
+      ></div
+    ></div
+  ></div
+><div id="point"
+><h1
+  ><a href="#TOC"
+    >Point</a
+    ></h1
+  ><p
+  >Points have a X and a Y coordinate and optionally a SRID.</p
+  ><div id="examples-2"
+  ><h2
+    ><a href="#TOC"
+      >Examples</a
+      ></h2
+    ><p
+    >Using X, Y coordinates to represent houses.</p
     ><pre
     ><code
       >* CREATE TABLE houses ( id INTEGER PRIMARY KEY, location POINT NOT NULL );\g
@@ -622,8 +776,13 @@ Executing . . .
 Executing . . .
 
 (1 row)
-
-* SELECT DISTANCE(location, POINTFROMTEXT('POINT(4 4)')) FROM houses;\g
+</code
+      ></pre
+    ><p
+    >Calculate the distance from a point (4, 4) to each house.</p
+    ><pre
+    ><code
+      >* SELECT DISTANCE(location, POINTFROMTEXT('POINT(4 4)')) FROM houses;\g
 Executing . . .
 
 
@@ -636,6 +795,76 @@ Executing . . .
 (2 rows)
 </code
       ></pre
+    ><div class="figure"
+    ><img src="point.png" alt="Points"
+       /><p class="caption"
+      >Points</p
+      ></div
+    ></div
+  ></div
+><div id="polygon"
+><h1
+  ><a href="#TOC"
+    >Polygon</a
+    ></h1
+  ><p
+  >Polygons are sets of points that form an area, optionally with an SSID.</p
+  ><div id="examples-3"
+  ><h2
+    ><a href="#TOC"
+      >Examples</a
+      ></h2
+    ><p
+    >Using polygons to represent the property owned.</p
+    ><pre
+    ><code
+      >* CREATE TABLE properties (id INTEGER PRIMARY KEY, area POLYGON NOT NULL, owner_id INTEGER NOT NULL);\g
+Executing . . .
+
+* INSERT INTO properties (id, area, owner_id) VALUES (1, POLYFROMTEXT('POLYGON((0 10, 1 10, 1 1, 10 1, 10 0, 0 0, 0 10))'), 1);\g
+Executing . . .
+
+(1 row)
+
+* INSERT INTO properties (id, area, owner_id) VALUES (2, POLYFROMTEXT('POLYGON((8 8, 10 8, 10 10, 8 10, 8 8))'), 1);\g           
+Executing . . .
+
+(1 row)
+
+* INSERT INTO properties (id, area, owner_id) VALUES (3, POLYFROMTEXT('POLYGON((1 10, 8 10, 8 8, 10 8, 10 4, 1 4, 1 10), (2 9, 7 9, 7 5, 2 5, 2 9))'), 2);\g
+Executing . . .
+
+(1 row)
+
+* INSERT INTO properties (id, area, owner_id) VALUES (4, POLYFROMTEXT('POLYGON((1 1, 10 1, 10 4, 1 4, 1 1))'), 3);\g 
+Executing . . .
+
+(1 row)
+</code
+      ></pre
+    ><p
+    >How much fencing must each owner buy to cover their property (where neighbouring properties are double-fenced).</p
+    ><pre
+    ><code
+      >* SELECT SUM(PERIMETER(area)), owner_id FROM properties GROUP BY owner_id;\g    
+Executing . . .
+
+
+┌───────────┬─────────────┐
+│col1       │owner_id     │
+├───────────┼─────────────┤
+│     48.000│            1│
+│     48.000│            2│
+│     24.000│            3│
+└───────────┴─────────────┘
+(3 rows)
+</code
+      ></pre
+    ><div class="figure"
+    ><img src="polygon.png" alt="Properties"
+       /><p class="caption"
+      >Properties</p
+      ></div
     ></div
   ></div
 ><div id="area"
@@ -734,7 +963,7 @@ Executing . . .
     ></ul
   ><p
   >ASSVG gives full precision, to control precision use SVGROUND(g Geometry, n integer) - Not documented.</p
-  ><div id="examples-1"
+  ><div id="examples-4"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -820,7 +1049,7 @@ Executing . . .
   >Alias: ST_ASTEXTRAW</p
   ><p
   >Returns g in Well Known Text (WKT) where every number has a precision of 16, i.e. every number has 16 digits after the decimal point.</p
-  ><div id="examples-2"
+  ><div id="examples-5"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -871,7 +1100,7 @@ Executing . . .
   ><strong
     >???</strong
     > Crashes if p is a large number, e.g. 200: SELECT ASTEXTROUND(BUFFER(LINEFROMTEXT('LINESTRING(0 0, 10 10)'), 1), 200);\g</p
-  ><div id="examples-3"
+  ><div id="examples-6"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -926,6 +1155,50 @@ Executing . . .
       ></pre
     ></div
   ></div
+><div id="boundary"
+><h1
+  ><a href="#TOC"
+    >Boundary</a
+    ></h1
+  ><p
+  >Geometry BOUNDARY(g Geometry)</p
+  ><p
+  >Alias: ST_BOUNDARY</p
+  ><p
+  >Returns the closure of the boundary of g.</p
+  ><div id="examples-7"
+  ><h2
+    ><a href="#TOC"
+      >Examples</a
+      ></h2
+    ><pre
+    ><code
+      >* SELECT ASTEXT(BOUNDARY(LINEFROMTEXT('LINESTRING(0 0, 10 0, 10 10)')));\g     
+Executing . . .
+
+
+┌────────────────────────────────┐
+│col1                            │
+├────────────────────────────────┤
+│MULTIPOINT (0 0, 10 10)         │
+└────────────────────────────────┘
+(1 row)
+
+
+* SELECT ASTEXT(BOUNDARY(POLYFROMTEXT('POLYGON((0 0, 10 0, 10 10, 0 0))')));\g
+Executing . . .
+
+
+┌────────────────────────────────┐
+│col1                            │
+├────────────────────────────────┤
+│LINESTRING (0 0, 10 0, 10 10, 0 0)│
+└────────────────────────────────┘
+(1 row)
+</code
+      ></pre
+    ></div
+  ></div
 ><div id="buffer"
 ><h1
   ><a href="#TOC"
@@ -974,7 +1247,7 @@ Executing . . .
   >Alias: ST_CENTROID</p
   ><p
   >Returns the center of g. Center could be outside g.</p
-  ><div id="examples-4"
+  ><div id="examples-8"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -1034,7 +1307,7 @@ Executing . . .
     > when g2 is inside g1, returns <code
     >0</code
     > otherwise.</p
-  ><div id="examples-5"
+  ><div id="examples-9"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -1212,7 +1485,7 @@ Executing . . .
   >Alias: ST_DIFFERENCE</p
   ><p
   >Returns the part of g1 that does not share any points with g2. g1 and g2 should have the same dimension.</p
-  ><div id="examples-6"
+  ><div id="examples-10"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -1301,7 +1574,7 @@ Executing . . .
     ><li
     >POLYGON and MULTIPOLYGON have a dimension of 2</li
     ></ul
-  ><div id="examples-7"
+  ><div id="examples-11"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -1554,7 +1827,7 @@ Executing . . .
     > if g1 is the same as g2, returns <code
     >0</code
     > otherwise.</p
-  ><div id="examples-8"
+  ><div id="examples-12"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -1597,7 +1870,7 @@ Executing . . .
   >Alias: ST_EXTERIORRING</p
   ><p
   >Returns the linestring for the exterior ring of p. The exterior ring is the outside of the polygon.</p
-  ><div id="examples-9"
+  ><div id="examples-13"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -1684,7 +1957,7 @@ Executing . . .
   >Returns a geometry object that corresponds to the Well Known Text (WKT) in s. The SRID can optionally be specified, it is <code
     >-1</code
     > by default.</p
-  ><div id="examples-10"
+  ><div id="examples-14"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -1754,7 +2027,7 @@ Executing . . .
   ><strong
     >???</strong
     > How do I insert results from ASBINARY into GEOMFROMWKB manually? For example copy ASBINARY results and paste into GEOMFROMWKB.</p
-  ><div id="examples-11"
+  ><div id="examples-15"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -1820,7 +2093,7 @@ Executing . . .
   >Alias: ST_GEOMETRYN</p
   ><p
   >Returns the n-th object from g.</p
-  ><div id="examples-12"
+  ><div id="examples-16"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -1888,7 +2161,7 @@ Executing . . .
     > if every point in g1 is shared with g2, returns <code
     >0</code
     > otherwise. Returns the same result as WITHIN.</p
-  ><div id="examples-13"
+  ><div id="examples-17"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -1944,7 +2217,7 @@ Executing . . .
   >Alias: ST_INTERIORRINGN</p
   ><p
   >Returns the linestring for the n-th interior ring of p. Interior rings are holes in the polygon.</p
-  ><div id="examples-14"
+  ><div id="examples-18"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -2023,7 +2296,7 @@ Executing . . .
     > if g1 and g2 have any shared points, returns <code
     >0</code
     > otherwise. Returns the opposite of DISJOINT.</p
-  ><div id="examples-15"
+  ><div id="examples-19"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -2104,7 +2377,7 @@ Executing . . .
     > if the first and last points in g are the same, returns <code
     >0</code
     > otherwise.</p
-  ><div id="examples-16"
+  ><div id="examples-20"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -2166,7 +2439,7 @@ Executing . . .
     > otherwise. Will return <code
     >-1</code
     > if there is an error.</p
-  ><div id="examples-17"
+  ><div id="examples-21"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -2236,7 +2509,7 @@ Executing . . .
     > if g's start point and end point are the same (ISCLOSED) and g does not cross the same point twice (ISSIMPLE). Returns <code
     >0</code
     > otherwise.</p
-  ><div id="examples-18"
+  ><div id="examples-22"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -2306,7 +2579,7 @@ Executing . . .
   ><strong
     >???</strong
     > Can a 2 dimensional object (eg. polygon) not be simple?</p
-  ><div id="examples-19"
+  ><div id="examples-23"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -2391,7 +2664,7 @@ Executing . . .
     > You cannot call this function with simply LENGTH, you must use ST_LENGTH. The LENGTH function is defined outside of the geospatial functions. All geospatial functions can be called with <code
     >ST_</code
     > in front of them, however it is usually more convenient to omit this where possible.</p
-  ><div id="examples-20"
+  ><div id="examples-24"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -2620,7 +2893,7 @@ Executing . . .
   >Alias: ST_NUMGEOMETRIES</p
   ><p
   >Returns the number of objects in g.</p
-  ><div id="examples-21"
+  ><div id="examples-25"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -2689,7 +2962,7 @@ Executing . . .
   >Alias: ST_NUMPOINTS</p
   ><p
   >Returns the number of points that make up l.</p
-  ><div id="examples-22"
+  ><div id="examples-26"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -2730,7 +3003,7 @@ Executing . . .
     > if g1 and g2 have some points which they share and the object that forms this intersection is of the same dimension as g1 and g2. Returns <code
     >0</code
     > if one of them shares every point with the other the other (CONTAINS) or if they do not share any points (DISJOINT).</p
-  ><div id="examples-23"
+  ><div id="examples-27"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -3003,6 +3276,143 @@ Executing . . .
     >-1</code
     > by default.</p
   ></div
+><div id="relate"
+><h1
+  ><a href="#TOC"
+    >Relate</a
+    ></h1
+  ><p
+  >integer RELATE(g1 Geometry, g2 Geometry, matrix string)</p
+  ><p
+  >Alias: ST_RELATE</p
+  ><p
+  >Returns <code
+    >1</code
+    > if g1 and g2 relate in the way specified by matrix, returns <code
+    >0</code
+    > otherwise.</p
+  ><p
+  >matrix is a string 9 characters long, each character specified the desired dimension of the intersection between two objects.</p
+  ><p
+  >The 9 sets of intersecting objects are:</p
+  ><table>
+  <tr>
+    <td>interior of g1 and interior of g2</td>
+    <td>interior of g1 and boundary of g2</td>
+    <td>interior of g1 and exterior of g2</td>
+  </tr>
+  <tr>
+    <td>boundary of g1 and interior of g2</td>
+    <td>boundary of g1 and boundary of g2</td>
+    <td>boundary of g1 and exterior of g2</td>
+  </tr>
+  <tr>
+    <td>exterior of g1 and interior of g2</td>
+    <td>exterior of g1 and boundary of g2</td>
+    <td>exterior of g1 and exterior of g2</td>
+  </tr>
+</table>
+
+<p
+  >The characters is the string are read left-to-right, top-to-bottom into the corresponding table. For example, the forth character corresponds to the second row in the first column (boundary of g1 and interior of g2).</p
+  ><p
+  >If g1 and g2 are two diamonds.</p
+  ><div class="figure"
+  ><img src="relate.png" alt="Diamonds"
+     /><p class="caption"
+    >Diamonds</p
+    ></div
+  ><p
+  >The interior of g1 is (dimension 2):</p
+  ><div class="figure"
+  ><img src="relate2.png" alt="Interior"
+     /><p class="caption"
+    >Interior</p
+    ></div
+  ><p
+  >The boundary of g1 is (dimension 1):</p
+  ><div class="figure"
+  ><img src="relate3.png" alt="Boundary"
+     /><p class="caption"
+    >Boundary</p
+    ></div
+  ><p
+  >The exterior of g1 is (dimension 2):</p
+  ><div class="figure"
+  ><img src="relate4.png" alt="Exterior"
+     /><p class="caption"
+    >Exterior</p
+    ></div
+  ><p
+  >So, the intersection of the boundary of g1 and interior of g2 is (dimension 1):</p
+  ><div class="figure"
+  ><img src="relate5.png" alt="BoundaryInterior"
+     /><p class="caption"
+    >BoundaryInterior</p
+    ></div
+  ><p
+  >For each of the 9 tests the desired dimension can be specified to be 0, 1, 2, * (any), F (empty), or T (non-empty).</p
+  ><div id="examples-28"
+  ><h2
+    ><a href="#TOC"
+      >Examples</a
+      ></h2
+    ><p
+    >Are g1 and g2 disjoint? Use the matrix FF*FF****.</p
+    ><p
+    >If g1 and g2 were disjoint.</p
+    ><ul
+    ><li
+      >The interior of g1 would not intersect with the interior or boundary of g2, it would intersect completely with the exterior of g2 (FF*).</li
+      ><li
+      >The boundary of g1 would not intersect with the interior or boundary of g2, it would intersect completely with the exterior of g2 (FF*).</li
+      ><li
+      >The exterior of g1 would intersect with the interior, boundary, and exterior of g2 (***).</li
+      ></ul
+    ><p
+    >g1 and g2 are disjoint.</p
+    ><pre
+    ><code
+      >* SELECT RELATE(POLYFROMTEXT('POLYGON((0 0, 2 0, 2 2, 0 2, 0 0))'), POLYFROMTEXT('POLYGON((4 4, 4 6, 6 6, 6 4, 4 4))'), 'FF*FF****');\g 
+Executing . . .
+
+
+┌─────────────┐
+│col1         │
+├─────────────┤
+│            1│
+└─────────────┘
+(1 row)
+</code
+      ></pre
+    ><div class="figure"
+    ><img src="relate6.png" alt="Disjoint"
+       /><p class="caption"
+      >Disjoint</p
+      ></div
+    ><p
+    >g1 and g2 not are disjoint.</p
+    ><pre
+    ><code
+      >* SELECT RELATE(POLYFROMTEXT('POLYGON((0 0, 4 0, 4 4, 0 4, 0 0))'), POLYFROMTEXT('POLYGON((2 2, 2 6, 6 6, 6 2, 2 2))'), 'FF*FF****');\g 
+Executing . . .
+
+
+┌─────────────┐
+│col1         │
+├─────────────┤
+│            0│
+└─────────────┘
+(1 row)
+</code
+      ></pre
+    ><div class="figure"
+    ><img src="relate7.png" alt="NotDisjoint"
+       /><p class="caption"
+      >NotDisjoint</p
+      ></div
+    ></div
+  ></div
 ><div id="srid"
 ><h1
   ><a href="#TOC"
@@ -3022,7 +3432,7 @@ Executing . . .
   ><a href="http://spatialreference.org/"
     >http://spatialreference.org/</a
     > lists many spatial reference systems.</p
-  ><div id="examples-24"
+  ><div id="examples-29"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -3115,7 +3525,7 @@ Executing . . .
   >Alias: ST_SYMDIFFERENCE</p
   ><p
   >Returns an object that contains every point in either one of g1 or g2 but not points are in both g1 and g2. g1 and g2 should have the same dimension. Equivalent to the UNION of the DIFFERENCEs of g1, g2 and g2, g1.</p
-  ><div id="examples-25"
+  ><div id="examples-30"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -3195,7 +3605,7 @@ Executing . . .
     > if g1 and g2 share one or more points along their edges but do not overlap, returns <code
     >0</code
     > if they overlap or do not share any points.</p
-  ><div id="examples-26"
+  ><div id="examples-31"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -3251,7 +3661,7 @@ Executing . . .
   >Alias: ST_TRANSFORM</p
   ><p
   >Transforms g from one spatial reference system to another. It does not change the SRID of g, it only changes the coordinates of g. Both the SRID being transformed from and to must be in the spatial_ref_sys table.</p
-  ><div id="examples-27"
+  ><div id="examples-32"
   ><h2
     ><a href="#TOC"
       >Examples</a
@@ -3369,7 +3779,7 @@ Executing . . .
     > if every point in g1 is in g2, returns <code
     >0</code
     > otherwise.</p
-  ><div id="examples-28"
+  ><div id="examples-33"
   ><h2
     ><a href="#TOC"
       >Examples</a
